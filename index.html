@@ -85,6 +85,15 @@ ul { list-style: none; }
   .nav-mobile-btn { display: flex; align-items: center; }
   .btn-ghost { display: none; }
 }
+@media (max-width: 860px) {
+  .nav-links.open {
+    display: flex; flex-direction: column;
+    position: absolute; top: 64px; left: 0; right: 0;
+    background: #fff; border-bottom: 1px solid var(--border);
+    padding: 12px 0; gap: 0;
+  }
+  .nav-links.open a { padding: 12px var(--gutter); font-size: 0.85rem; }
+}
 
 /* ── HERO ── */
 .hero {
@@ -209,7 +218,6 @@ ul { list-style: none; }
 .bratus-banner a:hover { border-color: #fff; }
 
 /* ── CAT CARDS ── */
-/* ── CATEGORY SELECTOR ── */
 .cats-wrap {
   background: var(--bg2);
   border-bottom: 1px solid var(--border);
@@ -224,8 +232,6 @@ ul { list-style: none; }
   font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase;
   color: var(--ink3); white-space: nowrap;
 }
-
-/* ── DESKTOP: 3-column grid ── */
 .cats-inner {
   max-width: var(--max); margin: 0 auto;
   display: grid; grid-template-columns: repeat(3,1fr);
@@ -239,7 +245,6 @@ ul { list-style: none; }
   user-select: none; -webkit-tap-highlight-color: transparent;
   background: #f8f8f8;
   transition: background 0.2s;
-  /* red top bar */
   border-top: 3px solid transparent;
   transition: background 0.2s, border-top-color 0.25s;
 }
@@ -251,7 +256,6 @@ ul { list-style: none; }
 }
 .cat-tab:not(.active):hover { background: #f0f0f0; }
 
-/* tap hint badge */
 .cat-tap-hint {
   position: absolute; top: 13px; right: 13px;
   background: var(--accent); color: #fff;
@@ -319,7 +323,6 @@ ul { list-style: none; }
 .cat-tab.active .cat-tab-img img { opacity: 0.9; filter: grayscale(0); transform: translateY(0); }
 .cat-tab:not(.active):hover .cat-tab-img img { opacity: 0.35; transform: translateY(4px); }
 
-/* ── MOBILE: horizontal pill switcher (≤ 700px) ── */
 @media (max-width: 700px) {
   .cats-wrap {
     padding: 16px 0 0;
@@ -349,13 +352,7 @@ ul { list-style: none; }
     background: transparent;
     box-shadow: none;
   }
-  /* Hide desktop-only elements */
-  .cat-tab-num,
-  .cat-tab-desc,
-  .cat-tab-img,
-  .cat-tap-hint,
-  .cat-tab-footer { display: none; }
-  /* Show only the pill button */
+  .cat-tab-num, .cat-tab-desc, .cat-tab-img, .cat-tap-hint, .cat-tab-footer { display: none; }
   .cat-tab-title {
     font-size: 0.82rem; font-weight: 500;
     letter-spacing: 0.01em; line-height: 1;
@@ -377,152 +374,65 @@ ul { list-style: none; }
   }
 }
 
-/* ── TABLET: 2-column layout (701px–900px) ── */
 @media (min-width: 701px) and (max-width: 900px) {
-  .cats-inner {
-    grid-template-columns: 1fr 1fr;
-    border-bottom: none;
-  }
+  .cats-inner { grid-template-columns: 1fr 1fr; border-bottom: none; }
   .cat-tab:nth-child(2) { border-right: none; }
-  .cat-tab:nth-child(3) {
-    grid-column: 1 / -1;
-    border-top: 1px solid var(--border);
-    border-right: none;
-  }
+  .cat-tab:nth-child(3) { grid-column: 1 / -1; border-top: 1px solid var(--border); border-right: none; }
   .cat-tab-title { font-size: 1.1rem; }
   .cat-tab-img { height: 70px; }
   .cat-tab-img img { height: 78px; }
 }
 
 /* ── PANEL SLIDER ── */
-.panels-viewport {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-.panels-track {
-  display: flex;
-  width: 100%;
-  transition: transform 0.5s var(--ease);
-  will-change: transform;
-}
-.panel {
-  width: 100%;
-  min-width: 100%;
-  flex: 0 0 100%;
-}
+.panels-viewport { overflow: hidden; position: relative; width: 100%; }
+.panels-track { display: flex; width: 100%; transition: transform 0.5s var(--ease); will-change: transform; }
+.panel { width: 100%; min-width: 100%; flex: 0 0 100%; }
 
 /* ── SECTION LAYOUT ── */
 .section { padding: clamp(48px,7vw,100px) var(--gutter); }
 .section-max { max-width: var(--max); margin: 0 auto; }
-.eyebrow {
-  display: inline-flex; align-items: center; gap: 10px;
-  font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--ink3); margin-bottom: 16px;
-}
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink3); margin-bottom: 16px; }
 .eyebrow::before { content:''; width:20px; height:1px; background: var(--accent); display:block; }
-.section-title {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(2.2rem,4.5vw,3.8rem); font-weight: 300;
-  letter-spacing: -0.03em; line-height: 1.04; color: var(--ink);
-  margin-bottom: 12px;
-}
+.section-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2.2rem,4.5vw,3.8rem); font-weight: 300; letter-spacing: -0.03em; line-height: 1.04; color: var(--ink); margin-bottom: 12px; }
 .section-title strong { font-weight: 700; }
 .section-title em { font-style: italic; color: var(--ink2); }
-.section-sub {
-  font-size: 0.93rem; color: var(--ink2); line-height: 1.78;
-  max-width: 520px; font-weight: 300; margin-top: 8px;
-}
-.section-header {
-  display: flex; align-items: flex-end;
-  justify-content: space-between; gap: 24px;
-  margin-bottom: 40px; padding-bottom: 28px;
-  border-bottom: 1px solid var(--border);
-}
+.section-sub { font-size: 0.93rem; color: var(--ink2); line-height: 1.78; max-width: 520px; font-weight: 300; margin-top: 8px; }
+.section-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 40px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
 @media (max-width: 640px) { .section-header { flex-direction: column; align-items: flex-start; } }
-.link-arrow {
-  display: inline-flex; align-items: center; gap: 7px;
-  font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--accent); font-weight: 500; flex-shrink: 0;
-  transition: gap 0.2s;
-}
+.link-arrow { display: inline-flex; align-items: center; gap: 7px; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 500; flex-shrink: 0; transition: gap 0.2s; }
 .link-arrow:hover { gap: 11px; }
 
 /* ── MACHINE LIST ── */
 .machine-list { display: flex; flex-direction: column; }
-.machine-item {
-  display: grid; grid-template-columns: 1fr 240px;
-  border-top: 1px solid var(--border); transition: background 0.18s;
-  position: relative; cursor: pointer;
-}
+.machine-item { display: grid; grid-template-columns: 1fr 240px; border-top: 1px solid var(--border); transition: background 0.18s; position: relative; cursor: pointer; }
 .machine-item:last-child { border-bottom: 1px solid var(--border); }
 .machine-item:hover { background: var(--bg2); }
-.badge-new {
-  position: absolute; top: 14px; left: 18px;
-  font-size: 0.54rem; letter-spacing: 0.12em; text-transform: uppercase;
-  padding: 3px 9px; background: var(--accent); color: #fff; font-weight: 600;
-}
-.machine-left {
-  padding: 24px 24px 24px 18px;
-  display: flex; flex-direction: column; justify-content: center;
-}
-.machine-cat {
-  font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--ink3); margin-bottom: 6px; padding-top: 18px;
-}
-.machine-name {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(1.25rem,2.2vw,1.8rem); font-weight: 300;
-  letter-spacing: -0.022em; color: var(--ink); margin-bottom: 14px; line-height: 1.1;
-}
+.badge-new { position: absolute; top: 14px; left: 18px; font-size: 0.54rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 9px; background: var(--accent); color: #fff; font-weight: 600; }
+.machine-left { padding: 24px 24px 24px 18px; display: flex; flex-direction: column; justify-content: center; }
+.machine-cat { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink3); margin-bottom: 6px; padding-top: 18px; }
+.machine-name { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.25rem,2.2vw,1.8rem); font-weight: 300; letter-spacing: -0.022em; color: var(--ink); margin-bottom: 14px; line-height: 1.1; }
 .machine-name .lbl { font-size: 0.72em; color: var(--ink2); letter-spacing: 0.04em; }
 .specs { display: flex; gap: 18px; flex-wrap: wrap; }
 .spec { display: flex; flex-direction: column; gap: 3px; }
 .spec-l { font-size: 0.57rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink3); }
 .spec-v { font-size: 0.8rem; color: var(--ink); font-weight: 400; }
-.machine-right {
-  border-left: 1px solid var(--border); display: flex;
-  align-items: center; justify-content: center;
-  padding: 16px; position: relative; overflow: hidden;
-}
-.machine-right img {
-  width: 100%; height: 130px; object-fit: contain;
-  transition: transform 0.5s var(--ease); filter: brightness(0.97);
-}
+.machine-right { border-left: 1px solid var(--border); display: flex; align-items: center; justify-content: center; padding: 16px; position: relative; overflow: hidden; }
+.machine-right img { width: 100%; height: 130px; object-fit: contain; transition: transform 0.5s var(--ease); filter: brightness(0.97); }
 .machine-item:hover .machine-right img { transform: scale(1.05); }
-.machine-arr {
-  position: absolute; bottom: 12px; right: 12px;
-  width: 28px; height: 28px; border: 1px solid var(--border2);
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; transition: opacity 0.18s, border-color 0.18s;
-}
+.machine-arr { position: absolute; bottom: 12px; right: 12px; width: 28px; height: 28px; border: 1px solid var(--border2); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.18s, border-color 0.18s; }
 .machine-item:hover .machine-arr { opacity: 1; border-color: var(--accent); }
 .machine-arr svg { width: 11px; height: 11px; color: var(--accent); }
-@media (max-width: 640px) {
-  .machine-item { grid-template-columns: 1fr; }
-  .machine-right { border-left: none; border-top: 1px solid var(--border); height: 110px; }
-}
+@media (max-width: 640px) { .machine-item { grid-template-columns: 1fr; } .machine-right { border-left: none; border-top: 1px solid var(--border); height: 110px; } }
 
-/* ── ABOUT ── */
+/* ── ABOUT & OTHERS ── */
 .about-section { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.about-inner {
-  max-width: var(--max); margin: 0 auto;
-  display: grid; grid-template-columns: 1.2fr 1fr; gap: 72px;
-  align-items: center; padding: clamp(48px,7vw,96px) var(--gutter);
-}
-.about-text h2 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(1.9rem,3.8vw,3rem); font-weight: 300;
-  letter-spacing: -0.03em; color: var(--ink); margin-bottom: 18px; line-height: 1.06;
-}
+.about-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 72px; align-items: center; padding: clamp(48px,7vw,96px) var(--gutter); }
+.about-text h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem,3.8vw,3rem); font-weight: 300; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 18px; line-height: 1.06; }
 .about-text h2 strong { font-weight: 700; }
 .about-text p { font-size: 0.92rem; color: var(--ink2); line-height: 1.8; font-weight: 300; margin-bottom: 12px; }
 .about-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
 .about-stats { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); }
-.a-stat {
-  padding: 26px 22px; border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
+.a-stat { padding: 26px 22px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .a-stat:nth-child(2n) { border-right: none; }
 .a-stat:nth-child(3), .a-stat:nth-child(4) { border-bottom: none; }
 .a-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.3rem; font-weight: 300; letter-spacing: -0.04em; color: var(--ink); line-height: 1; margin-bottom: 5px; }
@@ -531,24 +441,10 @@ ul { list-style: none; }
 @media (max-width: 860px) { .about-inner { grid-template-columns: 1fr; gap: 40px; } }
 
 /* ── CTA BAND ── */
-.cta-band {
-  background: #1a1a1a; padding: clamp(48px,7vw,90px) var(--gutter);
-  position: relative; overflow: hidden;
-}
-.cta-band::before {
-  content:''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg,transparent,rgba(230,60,50,0.5),transparent);
-}
-.cta-inner {
-  max-width: var(--max); margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 40px; flex-wrap: wrap;
-}
-.cta-text h2 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(1.7rem,3.2vw,2.6rem); font-weight: 300;
-  letter-spacing: -0.03em; color: #fff; margin-bottom: 8px; line-height: 1.1;
-}
+.cta-band { background: #1a1a1a; padding: clamp(48px,7vw,90px) var(--gutter); position: relative; overflow: hidden; }
+.cta-band::before { content:''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg,transparent,rgba(230,60,50,0.5),transparent); }
+.cta-inner { max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+.cta-text h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.7rem,3.2vw,2.6rem); font-weight: 300; letter-spacing: -0.03em; color: #fff; margin-bottom: 8px; line-height: 1.1; }
 .cta-text h2 strong { font-weight: 700; }
 .cta-text h2 em { font-style: italic; color: rgba(255,255,255,0.35); }
 .cta-text p { font-size: 0.88rem; color: rgba(255,255,255,0.4); font-weight: 300; max-width: 380px; line-height: 1.7; }
@@ -556,28 +452,14 @@ ul { list-style: none; }
 
 /* ── CONTACT ── */
 .contact-section { background: var(--bg); border-top: 1px solid var(--border); }
-.contact-inner {
-  max-width: var(--max); margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1.25fr; gap: 72px; align-items: start;
-}
-.contact-left h2 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(1.9rem,3.5vw,2.8rem); font-weight: 300;
-  letter-spacing: -0.03em; color: var(--ink); margin-bottom: 14px; line-height: 1.05;
-}
+.contact-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1fr 1.25fr; gap: 72px; align-items: start; }
+.contact-left h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem,3.5vw,2.8rem); font-weight: 300; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 14px; line-height: 1.05; }
 .contact-left h2 em { font-style: italic; color: var(--accent); }
 .contact-left p { font-size: 0.91rem; color: var(--ink2); line-height: 1.8; font-weight: 300; margin-bottom: 32px; }
 .contact-meta { display: flex; flex-direction: column; gap: 6px; }
-.cmeta {
-  display: flex; align-items: center; gap: 13px;
-  padding: 13px 16px; background: var(--bg2);
-  border: 1px solid var(--border); transition: border-color 0.2s;
-}
+.cmeta { display: flex; align-items: center; gap: 13px; padding: 13px 16px; background: var(--bg2); border: 1px solid var(--border); transition: border-color 0.2s; }
 .cmeta:hover { border-color: rgba(230,60,50,0.35); }
-.cmeta-ico {
-  width: 30px; height: 30px; border: 1px solid var(--border2);
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-}
+.cmeta-ico { width: 30px; height: 30px; border: 1px solid var(--border2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .cmeta-ico svg { width: 13px; height: 13px; color: var(--accent); }
 .cmeta-lbl { font-size: 0.57rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink3); margin-bottom: 2px; }
 .cmeta-val { font-size: 0.83rem; font-weight: 400; color: var(--ink); }
@@ -586,33 +468,18 @@ ul { list-style: none; }
 .fg { margin-bottom: 16px; }
 .f2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .form-lbl { display: block; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink3); margin-bottom: 7px; }
-.finput, .ftextarea, .fselect {
-  width: 100%; background: #fff; border: 1px solid var(--border2);
-  color: var(--ink); font-family: 'Inter', sans-serif; font-size: 0.88rem;
-  padding: 11px 14px; outline: none; transition: border-color 0.2s;
-  font-weight: 300; -webkit-appearance: none;
-}
+.finput, .ftextarea, .fselect { width: 100%; background: #fff; border: 1px solid var(--border2); color: var(--ink); font-family: 'Inter', sans-serif; font-size: 0.88rem; padding: 11px 14px; outline: none; transition: border-color 0.2s; font-weight: 300; -webkit-appearance: none; }
 .finput:focus, .ftextarea:focus, .fselect:focus { border-color: var(--accent); }
 .finput::placeholder, .ftextarea::placeholder { color: #bbb; }
 .ftextarea { resize: vertical; min-height: 96px; }
 .fselect { cursor: pointer; }
-.btn-submit {
-  width: 100%; display: flex; align-items: center; justify-content: center;
-  gap: 10px; padding: 15px; background: var(--accent); border: none;
-  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
-  font-weight: 500; color: #fff; cursor: pointer;
-  font-family: 'Inter', sans-serif; transition: background 0.2s; margin-top: 6px;
-}
+.btn-submit { width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 15px; background: var(--accent); border: none; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; color: #fff; cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.2s; margin-top: 6px; }
 .btn-submit:hover { background: #c42e25; }
 @media (max-width: 860px) { .contact-inner { grid-template-columns: 1fr; gap: 40px; } .f2 { grid-template-columns: 1fr; } .form-box { padding: 24px; } }
 
 /* ── FOOTER ── */
 footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
-.footer-grid {
-  max-width: var(--max); margin: 0 auto;
-  display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 36px;
-  padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.08);
-}
+.footer-grid { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 36px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .footer-brand img { height: 20px; filter: brightness(10); opacity: 0.65; margin-bottom: 14px; }
 .footer-brand p { font-size: 0.78rem; color: rgba(255,255,255,0.3); line-height: 1.7; font-weight: 300; max-width: 210px; }
 .footer-col h5 { font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.22); margin-bottom: 14px; font-weight: 500; }
@@ -635,7 +502,6 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="nav">
   <div class="nav-logo">
     <img src="https://wattsan.com/wp-content/uploads/wattsan_logo-1.svg" alt="Wattsan">
@@ -644,6 +510,7 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
   </div>
   <div class="nav-links">
     <a href="#iekārtas">Iekārtas</a>
+    <a href="#rezerves-dalas">Rezerves daļas</a>
     <a href="#par-mums">Par mums</a>
     <a href="#kontakts">Kontakts</a>
     <a href="https://bratus.lv" target="_blank">bratus.lv ↗</a>
@@ -658,19 +525,7 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
     </button>
   </div>
 </nav>
-<style>
-@media (max-width: 860px) {
-  .nav-links.open {
-    display: flex; flex-direction: column;
-    position: absolute; top: 64px; left: 0; right: 0;
-    background: #fff; border-bottom: 1px solid var(--border);
-    padding: 12px 0; gap: 0;
-  }
-  .nav-links.open a { padding: 12px var(--gutter); font-size: 0.85rem; }
-}
-</style>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
@@ -709,7 +564,6 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
   </div>
 </section>
 
-<!-- MARQUEE -->
 <div class="marquee-wrap" aria-hidden="true">
   <div class="marquee-track">
     <span class="marquee-item">CO2 Lāzeris<span class="marquee-sep"></span></span>
@@ -735,13 +589,11 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
   </div>
 </div>
 
-<!-- BRATUS BANNER -->
 <div class="bratus-banner">
   <p>🇱🇻 <strong>Bratus.lv</strong> — Wattsan oficiālais pārstāvis Latvijā. Piegāde, uzstādīšana un garantijas apkalpošana.</p>
   <a href="https://bratus.lv" target="_blank">Apmeklēt bratus.lv →</a>
 </div>
 
-<!-- CATEGORY CARDS + PANEL SLIDER -->
 <div id="iekārtas">
   <div class="cats-wrap">
     <div class="cats-label">
@@ -799,7 +651,6 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
   <div class="panels-viewport">
     <div class="panels-track" id="panelsTrack">
 
-      <!-- PANEL 0: CO2 -->
       <div class="panel" style="background:#fff">
         <div class="section">
           <div class="section-max">
@@ -814,7 +665,6 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
               </a>
             </div>
             <div class="machine-list">
-
               <a href="https://bratus.lv" target="_blank" class="machine-item sr">
                 <div class="badge-new">Jauns 2025</div>
                 <div class="machine-left">
@@ -831,25 +681,7 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
                   <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
                 </div>
               </a>
-
               <a href="https://bratus.lv" target="_blank" class="machine-item sr d1">
-                <div class="badge-new">Jauns 2025</div>
-                <div class="machine-left">
-                  <div class="machine-cat">CO2 lāzeris · Vidēja formāta</div>
-                  <div class="machine-name">Wattsan 1290 <span class="lbl">PRO</span></div>
-                  <div class="specs">
-                    <div class="spec"><div class="spec-l">Darba zona</div><div class="spec-v">1200 × 900 mm</div></div>
-                    <div class="spec"><div class="spec-l">Jauda</div><div class="spec-v">100–120 W</div></div>
-                    <div class="spec"><div class="spec-l">Ātrums</div><div class="spec-v">1000 mm/s</div></div>
-                  </div>
-                </div>
-                <div class="machine-right">
-                  <img src="https://wattsan.com/wp-content/uploads/laser-co2-1290-pro-1-result.webp" alt="Wattsan 1290 PRO">
-                  <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-                </div>
-              </a>
-
-              <a href="https://bratus.lv" target="_blank" class="machine-item sr d2">
                 <div class="badge-new">Jauns 2025</div>
                 <div class="machine-left">
                   <div class="machine-cat">CO2 lāzeris · Industriāls</div>
@@ -865,47 +697,10 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
                   <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
                 </div>
               </a>
-
-              <a href="https://bratus.lv" target="_blank" class="machine-item sr d3">
-                <div class="machine-left">
-                  <div class="machine-cat">CO2 lāzeris · Lielformāta</div>
-                  <div class="machine-name">Wattsan 1630 <span class="lbl">Flat Bed PRO</span></div>
-                  <div class="specs">
-                    <div class="spec"><div class="spec-l">Darba zona</div><div class="spec-v">1600 × 3000 mm</div></div>
-                    <div class="spec"><div class="spec-l">Jauda</div><div class="spec-v">360–700 W</div></div>
-                    <div class="spec"><div class="spec-l">Ātrums</div><div class="spec-v">800 mm/s</div></div>
-                  </div>
-                </div>
-                <div class="machine-right">
-                  <img src="https://wattsan.com/wp-content/uploads/laser-co2-flat-bed-pro-1630-1-result.webp" alt="Wattsan 1630 Flat Bed PRO">
-                  <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-                </div>
-              </a>
-
-              <a href="https://bratus.lv" target="_blank" class="machine-item sr">
-                <div class="badge-new">Jauns 2025</div>
-                <div class="machine-left">
-                  <div class="machine-cat">CO2 lāzeris · Galda modelis</div>
-                  <div class="machine-name">Wattsan 0503 <span class="lbl">Hobby-T</span></div>
-                  <div class="specs">
-                    <div class="spec"><div class="spec-l">Darba zona</div><div class="spec-v">500 × 300 mm</div></div>
-                    <div class="spec"><div class="spec-l">Jauda</div><div class="spec-v">55 W</div></div>
-                    <div class="spec"><div class="spec-l">Ātrums</div><div class="spec-v">500 mm/s</div></div>
-                  </div>
-                </div>
-                <div class="machine-right">
-                  <img src="https://wattsan.com/wp-content/uploads/Titul1-1.webp" alt="Wattsan 0503 Hobby-T">
-                  <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-                </div>
-              </a>
-
             </div>
           </div>
         </div>
-      </div><!-- /panel 0 -->
-
-      <!-- PANEL 1: METĀLA GRIEŠANA -->
-      <div class="panel" style="background:#f5f5f5">
+      </div><div class="panel" style="background:#f5f5f5">
         <div class="section">
           <div class="section-max">
             <div class="section-header sr">
@@ -919,7 +714,6 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
               </a>
             </div>
             <div class="machine-list">
-
               <a href="https://bratus.lv" target="_blank" class="machine-item sr">
                 <div class="badge-new">Jauns</div>
                 <div class="machine-left">
@@ -928,7 +722,6 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
                   <div class="specs">
                     <div class="spec"><div class="spec-l">Darba zona</div><div class="spec-v">1300 × 1300 mm</div></div>
                     <div class="spec"><div class="spec-l">Jauda</div><div class="spec-v">līdz 6 kW</div></div>
-                    <div class="spec"><div class="spec-l">Ātrums</div><div class="spec-v">80 m/min</div></div>
                     <div class="spec"><div class="spec-l">Avots</div><div class="spec-v">Raycus / IPG</div></div>
                   </div>
                 </div>
@@ -937,95 +730,23 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
                   <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
                 </div>
               </a>
-
-              <a href="https://bratus.lv" target="_blank" class="machine-item sr d1">
-                <div class="machine-left">
-                  <div class="machine-cat">Šķiedru lāzeris · Industriāls</div>
-                  <div class="machine-name">Wattsan 1530 <span class="lbl">S</span></div>
-                  <div class="specs">
-                    <div class="spec"><div class="spec-l">Darba zona</div><div class="spec-v">1500 × 3000 mm</div></div>
-                    <div class="spec"><div class="spec-l">Jauda</div><div class="spec-v">līdz 12 kW</div></div>
-                    <div class="spec"><div class="spec-l">Ātrums</div><div class="spec-v">100–120 m/min</div></div>
-                    <div class="spec"><div class="spec-l">Avots</div><div class="spec-v">Raycus / IPG</div></div>
-                  </div>
-                </div>
-                <div class="machine-right">
-                  <img src="https://wattsan.com/wp-content/uploads/metall-cutter-plus-3.png" alt="Wattsan 1530 S">
-                  <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-                </div>
-              </a>
-
-              <a href="https://bratus.lv" target="_blank" class="machine-item sr d2">
-                <div class="badge-new">Jauns</div>
-                <div class="machine-left">
-                  <div class="machine-cat">Šķiedru lāzeris · Augstjaudas</div>
-                  <div class="machine-name">Wattsan 2060 <span class="lbl">Hard Ultra</span></div>
-                  <div class="specs">
-                    <div class="spec"><div class="spec-l">Darba zona</div><div class="spec-v">2000 × 6000 mm</div></div>
-                    <div class="spec"><div class="spec-l">Jauda</div><div class="spec-v">20–120 kW</div></div>
-                    <div class="spec"><div class="spec-l">Ātrums</div><div class="spec-v">200 m/min</div></div>
-                    <div class="spec"><div class="spec-l">Avots</div><div class="spec-v">Raycus / IPG</div></div>
-                  </div>
-                </div>
-                <div class="machine-right">
-                  <img src="https://wattsan.com/wp-content/uploads/hard-ultra-titul-for-pluses-edit-result.webp" alt="Wattsan 2060 Hard Ultra">
-                  <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-                </div>
-              </a>
-
-              <a href="https://bratus.lv" target="_blank" class="machine-item sr d3">
-                <div class="machine-left">
-                  <div class="machine-cat">Šķiedru lāzeris · Ar rotācijas asi</div>
-                  <div class="machine-name">Wattsan 1530 <span class="lbl">S Rotary</span></div>
-                  <div class="specs">
-                    <div class="spec"><div class="spec-l">Darba zona</div><div class="spec-v">1500 × 3000 mm</div></div>
-                    <div class="spec"><div class="spec-l">Jauda</div><div class="spec-v">līdz 12 kW</div></div>
-                    <div class="spec"><div class="spec-l">Ātrums</div><div class="spec-v">100–120 m/min</div></div>
-                  </div>
-                </div>
-                <div class="machine-right">
-                  <img src="https://wattsan.com/wp-content/uploads/1530-s-r-2.png" alt="Wattsan 1530 S Rotary">
-                  <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-                </div>
-              </a>
-
-              <a href="https://bratus.lv" target="_blank" class="machine-item sr">
-                <div class="machine-left">
-                  <div class="machine-cat">Šķiedru lāzeris · Kompakts</div>
-                  <div class="machine-name">Wattsan 1309 <span class="lbl">MINI</span></div>
-                  <div class="specs">
-                    <div class="spec"><div class="spec-l">Darba zona</div><div class="spec-v">1300 × 900 mm</div></div>
-                    <div class="spec"><div class="spec-l">Jauda</div><div class="spec-v">līdz 6 kW</div></div>
-                    <div class="spec"><div class="spec-l">Ātrums</div><div class="spec-v">40 m/min</div></div>
-                  </div>
-                </div>
-                <div class="machine-right">
-                  <img src="https://wattsan.com/wp-content/uploads/1309-mini-titul.png" alt="Wattsan 1309 MINI">
-                  <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-                </div>
-              </a>
-
             </div>
           </div>
         </div>
-      </div><!-- /panel 1 -->
-
-      <!-- PANEL 2: MARĶĒŠANA -->
-      <div class="panel" style="background:#fff">
+      </div><div class="panel" style="background:#fff">
         <div class="section">
           <div class="section-max">
             <div class="section-header sr">
               <div>
                 <div class="eyebrow">Marķēšanas iekārtas</div>
                 <h2 class="section-title"><strong>Marķētāji</strong><br><em>metālam un ne tikai</em></h2>
-                <p class="section-sub">Svītrkodi, QR kodi, logotipi un teksts uz metāla, plastmasas, keramikas un stikla. Trīs veidu marķieri — CO2, Fiber un UV.</p>
+                <p class="section-sub">Svītrkodi, QR kodi, logotipi un teksts uz metāla, plastmasas, keramikas un stikla.</p>
               </div>
               <a href="https://wattsan.com/products/laser-markers/" target="_blank" class="link-arrow">
                 Pilns katalogs <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </a>
             </div>
             <div class="machine-list">
-
               <a href="https://bratus.lv" target="_blank" class="machine-item sr">
                 <div class="badge-new">Jauns</div>
                 <div class="machine-left">
@@ -1034,8 +755,6 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
                   <div class="specs">
                     <div class="spec"><div class="spec-l">Jauda</div><div class="spec-v">5–100 W</div></div>
                     <div class="spec"><div class="spec-l">Darba zona</div><div class="spec-v">200 × 200 mm</div></div>
-                    <div class="spec"><div class="spec-l">Avots</div><div class="spec-v">JPT / RAYCUS</div></div>
-                    <div class="spec"><div class="spec-l">Tips</div><div class="spec-v">Statīvs</div></div>
                   </div>
                 </div>
                 <div class="machine-right">
@@ -1043,88 +762,244 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
                   <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
                 </div>
               </a>
-
-              <a href="https://bratus.lv" target="_blank" class="machine-item sr d1">
-                <div class="machine-left">
-                  <div class="machine-cat">Šķiedru lāzeris · Galda tips</div>
-                  <div class="machine-name">Wattsan FL <span class="lbl">TT</span></div>
-                  <div class="specs">
-                    <div class="spec"><div class="spec-l">Jauda</div><div class="spec-v">20–100 W</div></div>
-                    <div class="spec"><div class="spec-l">Darba zona</div><div class="spec-v">200 × 200 mm</div></div>
-                    <div class="spec"><div class="spec-l">Avots</div><div class="spec-v">JPT / IPG / MAX</div></div>
-                    <div class="spec"><div class="spec-l">Tips</div><div class="spec-v">Galda</div></div>
-                  </div>
-                </div>
-                <div class="machine-right">
-                  <img src="https://wattsan.com/wp-content/uploads/FL-TT-2.png" alt="Wattsan FL TT">
-                  <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-                </div>
-              </a>
-
-              <a href="https://bratus.lv" target="_blank" class="machine-item sr d2">
-                <div class="machine-left">
-                  <div class="machine-cat">UV marķētājs · Stikls un plastmasa</div>
-                  <div class="machine-name">Wattsan UV <span class="lbl">TT</span></div>
-                  <div class="specs">
-                    <div class="spec"><div class="spec-l">Jauda</div><div class="spec-v">5–20 W</div></div>
-                    <div class="spec"><div class="spec-l">Darba zona</div><div class="spec-v">200 × 200 mm</div></div>
-                    <div class="spec"><div class="spec-l">Avots</div><div class="spec-v">JPT UV</div></div>
-                    <div class="spec"><div class="spec-l">Tips</div><div class="spec-v">Galda</div></div>
-                  </div>
-                </div>
-                <div class="machine-right">
-                  <img src="https://wattsan.com/wp-content/uploads/UF-TT-titul-1.webp" alt="Wattsan UV TT">
-                  <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-                </div>
-              </a>
-
-              <a href="https://bratus.lv" target="_blank" class="machine-item sr d3">
-                <div class="badge-new">Jauns</div>
-                <div class="machine-left">
-                  <div class="machine-cat">Šķiedru lāzeris · Rokas</div>
-                  <div class="machine-name">Wattsan FL <span class="lbl">HH</span></div>
-                  <div class="specs">
-                    <div class="spec"><div class="spec-l">Jauda</div><div class="spec-v">20–100 W</div></div>
-                    <div class="spec"><div class="spec-l">Darba zona</div><div class="spec-v">140 × 140 mm</div></div>
-                    <div class="spec"><div class="spec-l">Avots</div><div class="spec-v">JPT / RAYCUS</div></div>
-                    <div class="spec"><div class="spec-l">Tips</div><div class="spec-v">Portatīvs</div></div>
-                  </div>
-                </div>
-                <div class="machine-right">
-                  <img src="https://wattsan.com/wp-content/uploads/laser-marker-fl-hh-new-titul-result.webp" alt="Wattsan FL HH">
-                  <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-                </div>
-              </a>
-
-              <a href="https://bratus.lv" target="_blank" class="machine-item sr">
-                <div class="badge-new">Jauns</div>
-                <div class="machine-left">
-                  <div class="machine-cat">Šķiedru lāzeris · Kompakts</div>
-                  <div class="machine-name">Wattsan FL <span class="lbl">Compact</span></div>
-                  <div class="specs">
-                    <div class="spec"><div class="spec-l">Jauda</div><div class="spec-v">3–60 W</div></div>
-                    <div class="spec"><div class="spec-l">Darba zona</div><div class="spec-v">200 × 200 mm</div></div>
-                    <div class="spec"><div class="spec-l">Avots</div><div class="spec-v">JPT / IPG</div></div>
-                    <div class="spec"><div class="spec-l">Tips</div><div class="spec-v">Galda</div></div>
-                  </div>
-                </div>
-                <div class="machine-right">
-                  <img src="https://wattsan.com/wp-content/uploads/fl-compact-titul-1-result.webp" alt="Wattsan FL Compact">
-                  <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-                </div>
-              </a>
-
             </div>
           </div>
         </div>
-      </div><!-- /panel 2 -->
+      </div></div></div></div><div id="rezerves-dalas">
+  <div class="cats-wrap">
+    <div class="cats-label">
+      <div class="cats-label-line"></div>
+      <div class="cats-label-text">Izvēlieties rezerves daļu kategoriju</div>
+      <div class="cats-label-line"></div>
+    </div>
+    <div class="cats-inner">
 
-    </div><!-- /panels-track -->
-  </div><!-- /panels-viewport -->
-</div><!-- /#iekārtas -->
+      <div class="cat-tab active" data-panel="0">
+        <div class="cat-tap-hint">Spiest ↓</div>
+        <div class="cat-tab-num">01 &mdash; Aktīvs</div>
+        <div class="cat-tab-title">CO2 lampas</div>
+        <div class="cat-tab-desc">Reci, Lasea un citi augstas kvalitātes CO2 lāzera avoti un barošanas bloki.</div>
+        <div class="cat-tab-footer">
+          <div class="cat-tab-count"><div class="cat-count-dot"></div>Skatīt klāstu</div>
+          <div class="cat-tab-cta">Skatīt →</div>
+        </div>
+        <div class="cat-tab-img">
+          <img src="https://placehold.co/400x300/f8f9fa/1a1a1a?text=CO2+Lampa" alt="CO2 Lampa">
+        </div>
+      </div>
 
-<!-- ABOUT -->
-<section class="about-section" id="par-mums">
+      <div class="cat-tab" data-panel="1">
+        <div class="cat-tap-hint">Spiest ↓</div>
+        <div class="cat-tab-num">02</div>
+        <div class="cat-tab-title">Perifērijas iekārtas</div>
+        <div class="cat-tab-desc">Dzesētāji (Chillers), gaisa kompresori un izplūdes sistēmas stabilam darbam.</div>
+        <div class="cat-tab-footer">
+          <div class="cat-tab-count"><div class="cat-count-dot"></div>Skatīt klāstu</div>
+          <div class="cat-tab-cta">Skatīt →</div>
+        </div>
+        <div class="cat-tab-img">
+          <img src="https://placehold.co/400x300/f8f9fa/1a1a1a?text=Chiller" alt="Perifērija">
+        </div>
+      </div>
+
+      <div class="cat-tab" data-panel="2">
+        <div class="cat-tap-hint">Spiest ↓</div>
+        <div class="cat-tab-num">03</div>
+        <div class="cat-tab-title">Oficiālās rezerves daļas</div>
+        <div class="cat-tab-desc">Fokusa lēcas, spoguļi, siksnas un sensori garantētai saderībai un ilgmūžībai.</div>
+        <div class="cat-tab-footer">
+          <div class="cat-tab-count"><div class="cat-count-dot"></div>Skatīt klāstu</div>
+          <div class="cat-tab-cta">Skatīt →</div>
+        </div>
+        <div class="cat-tab-img">
+          <img src="https://placehold.co/400x300/f8f9fa/1a1a1a?text=Rezerves+Dalas" alt="Rezerves daļas">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="panels-viewport">
+    <div class="panels-track" id="partsTrack">
+
+      <div class="panel" style="background:#fff">
+        <div class="section">
+          <div class="section-max">
+            <div class="section-header sr">
+              <div>
+                <div class="eyebrow">CO2 lāzera lampas</div>
+                <h2 class="section-title">Oriģinālās <strong>CO2 lampas</strong><br><em>un komponentes</em></h2>
+                <p class="section-sub">Mēs piedāvājam tikai oriģinālos Reci, Lasea avotus ar rūpnīcas garantiju un ilgu kalpošanas laiku.</p>
+              </div>
+            </div>
+            <div class="machine-list">
+              <a href="https://bratus.lv" target="_blank" class="machine-item sr">
+                <div class="machine-left">
+                  <div class="machine-cat">CO2 Lampa · Populārākā</div>
+                  <div class="machine-name">Reci <span class="lbl">W2 (90-100W)</span></div>
+                  <div class="specs">
+                    <div class="spec"><div class="spec-l">Nominālā jauda</div><div class="spec-v">90W</div></div>
+                    <div class="spec"><div class="spec-l">Maksimālā jauda</div><div class="spec-v">100W</div></div>
+                    <div class="spec"><div class="spec-l">Darbmūžs</div><div class="spec-v">~10,000 h</div></div>
+                  </div>
+                </div>
+                <div class="machine-right">
+                  <img src="https://placehold.co/400x300/f8f9fa/1a1a1a?text=Reci+W2" alt="Reci W2">
+                  <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+                </div>
+              </a>
+              <a href="https://bratus.lv" target="_blank" class="machine-item sr d1">
+                <div class="machine-left">
+                  <div class="machine-cat">CO2 Lampa · Lieljaudas</div>
+                  <div class="machine-name">Reci <span class="lbl">W4 (100-130W)</span></div>
+                  <div class="specs">
+                    <div class="spec"><div class="spec-l">Nominālā jauda</div><div class="spec-v">100W</div></div>
+                    <div class="spec"><div class="spec-l">Maksimālā jauda</div><div class="spec-v">130W</div></div>
+                    <div class="spec"><div class="spec-l">Darbmūžs</div><div class="spec-v">~10,000 h</div></div>
+                  </div>
+                </div>
+                <div class="machine-right">
+                  <img src="https://placehold.co/400x300/f8f9fa/1a1a1a?text=Reci+W4" alt="Reci W4">
+                  <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+                </div>
+              </a>
+              <a href="https://bratus.lv" target="_blank" class="machine-item sr d2">
+                <div class="machine-left">
+                  <div class="machine-cat">Barošanas bloks</div>
+                  <div class="machine-name">Lāzera bloks <span class="lbl">HY-T100</span></div>
+                  <div class="specs">
+                    <div class="spec"><div class="spec-l">Paredzēts</div><div class="spec-v">80W - 100W</div></div>
+                    <div class="spec"><div class="spec-l">Saderība</div><div class="spec-v">Universāla</div></div>
+                  </div>
+                </div>
+                <div class="machine-right">
+                  <img src="https://placehold.co/400x300/f8f9fa/1a1a1a?text=PSU+100W" alt="Power Supply">
+                  <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div><div class="panel" style="background:#f5f5f5">
+        <div class="section">
+          <div class="section-max">
+            <div class="section-header sr">
+              <div>
+                <div class="eyebrow">Perifērijas iekārtas</div>
+                <h2 class="section-title">Papildaprīkojums <em>jūsu</em><br><strong>ražošanas efektivitātei</strong></h2>
+                <p class="section-sub">Industriālie dzesētāji (Chiller), droši izplūdes ventilatori un kompresori, kas uztur optimālu iekārtas darbību.</p>
+              </div>
+            </div>
+            <div class="machine-list">
+              <a href="https://bratus.lv" target="_blank" class="machine-item sr">
+                <div class="badge-new">Bestseller</div>
+                <div class="machine-left">
+                  <div class="machine-cat">Dzesētājs · Aktīvā dzesēšana</div>
+                  <div class="machine-name">S&A <span class="lbl">CW-5200</span></div>
+                  <div class="specs">
+                    <div class="spec"><div class="spec-l">Dzesēšanas jauda</div><div class="spec-v">1.4 kW</div></div>
+                    <div class="spec"><div class="spec-l">Tilpums</div><div class="spec-v">6L</div></div>
+                    <div class="spec"><div class="spec-l">Tips</div><div class="spec-v">Freona / Aktīvais</div></div>
+                  </div>
+                </div>
+                <div class="machine-right">
+                  <img src="https://placehold.co/400x300/f8f9fa/1a1a1a?text=CW-5200" alt="CW-5200">
+                  <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+                </div>
+              </a>
+              <a href="https://bratus.lv" target="_blank" class="machine-item sr d1">
+                <div class="machine-left">
+                  <div class="machine-cat">Dzesētājs · Pasīvā dzesēšana</div>
+                  <div class="machine-name">S&A <span class="lbl">CW-3000</span></div>
+                  <div class="specs">
+                    <div class="spec"><div class="spec-l">Izstarošana</div><div class="spec-v">50W/°C</div></div>
+                    <div class="spec"><div class="spec-l">Tilpums</div><div class="spec-v">9L</div></div>
+                    <div class="spec"><div class="spec-l">Tips</div><div class="spec-v">Radiatora / Pasīvais</div></div>
+                  </div>
+                </div>
+                <div class="machine-right">
+                  <img src="https://placehold.co/400x300/f8f9fa/1a1a1a?text=CW-3000" alt="CW-3000">
+                  <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+                </div>
+              </a>
+              <a href="https://bratus.lv" target="_blank" class="machine-item sr d2">
+                <div class="machine-left">
+                  <div class="machine-cat">Ventilācija · Sūknis</div>
+                  <div class="machine-name">Radiālais ventilators <span class="lbl">550W</span></div>
+                  <div class="specs">
+                    <div class="spec"><div class="spec-l">Jauda</div><div class="spec-v">550W</div></div>
+                    <div class="spec"><div class="spec-l">Materiāls</div><div class="spec-v">Metāls</div></div>
+                    <div class="spec"><div class="spec-l">Pielietojums</div><div class="spec-v">Dūmu nosūkšana</div></div>
+                  </div>
+                </div>
+                <div class="machine-right">
+                  <img src="https://placehold.co/400x300/f8f9fa/1a1a1a?text=Izplūdes+Ventilators" alt="Ventilators">
+                  <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div><div class="panel" style="background:#fff">
+        <div class="section">
+          <div class="section-max">
+            <div class="section-header sr">
+              <div>
+                <div class="eyebrow">Oficiālās rezerves daļas</div>
+                <h2 class="section-title">Augstas precizitātes<br><strong>komponentes</strong></h2>
+                <p class="section-sub">Lēcas ar augstu caurlaidību, tīri atstarojoši spoguļi un izturīgas siksnas jūsu lāzera aprīkojumam.</p>
+              </div>
+            </div>
+            <div class="machine-list">
+              <a href="https://bratus.lv" target="_blank" class="machine-item sr">
+                <div class="machine-left">
+                  <div class="machine-cat">Optika · Lēca</div>
+                  <div class="machine-name">ZnSe Fokusa Lēca <span class="lbl">USA CVD</span></div>
+                  <div class="specs">
+                    <div class="spec"><div class="spec-l">Diametrs</div><div class="spec-v">20 mm</div></div>
+                    <div class="spec"><div class="spec-l">Fokusa attālums</div><div class="spec-v">50.8 mm (2")</div></div>
+                    <div class="spec"><div class="spec-l">Materiāls</div><div class="spec-v">Cinka Selenīds</div></div>
+                  </div>
+                </div>
+                <div class="machine-right">
+                  <img src="https://placehold.co/400x300/f8f9fa/1a1a1a?text=ZnSe+Leca" alt="Fokusa lēca">
+                  <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+                </div>
+              </a>
+              <a href="https://bratus.lv" target="_blank" class="machine-item sr d1">
+                <div class="machine-left">
+                  <div class="machine-cat">Optika · Spogulis</div>
+                  <div class="machine-name">Mo Spogulis <span class="lbl">25mm</span></div>
+                  <div class="specs">
+                    <div class="spec"><div class="spec-l">Diametrs</div><div class="spec-v">25 mm</div></div>
+                    <div class="spec"><div class="spec-l">Materiāls</div><div class="spec-v">Molibdēns (Mo)</div></div>
+                    <div class="spec"><div class="spec-l">Biezums</div><div class="spec-v">3 mm</div></div>
+                  </div>
+                </div>
+                <div class="machine-right">
+                  <img src="https://placehold.co/400x300/f8f9fa/1a1a1a?text=Mo+Spogulis" alt="Mo spogulis">
+                  <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+                </div>
+              </a>
+              <a href="https://bratus.lv" target="_blank" class="machine-item sr d2">
+                <div class="machine-left">
+                  <div class="machine-cat">Mehānika · Siksna</div>
+                  <div class="machine-name">HTD 3M <span class="lbl">Siksna</span></div>
+                  <div class="specs">
+                    <div class="spec"><div class="spec-l">Platums</div><div class="spec-v">15 mm</div></div>
+                    <div class="spec"><div class="spec-l">Solis</div><div class="spec-v">3 mm</div></div>
+                    <div class="spec"><div class="spec-l">Materiāls</div><div class="spec-v">Poliuretāns ar tērauda kordu</div></div>
+                  </div>
+                </div>
+                <div class="machine-right">
+                  <img src="https://placehold.co/400x300/f8f9fa/1a1a1a?text=HTD+3M" alt="Siksna">
+                  <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div></div></div></div><section class="about-section" id="par-mums">
   <div class="about-inner">
     <div class="about-text sr">
       <div class="eyebrow">Par Wattsan Latvijā</div>
@@ -1146,7 +1021,6 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
   </div>
 </section>
 
-<!-- CTA BAND -->
 <div class="cta-band">
   <div class="cta-inner">
     <div class="cta-text sr">
@@ -1162,7 +1036,6 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
   </div>
 </div>
 
-<!-- CONTACT -->
 <section class="contact-section section" id="kontakts">
   <div class="contact-inner">
     <div class="contact-left sr">
@@ -1213,7 +1086,6 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
@@ -1252,81 +1124,84 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
 <script>
 document.getElementById('yr').textContent = new Date().getFullYear();
 
-// ── PANEL SWITCHER ──
-const track = document.getElementById('panelsTrack');
-const tabs = document.querySelectorAll('.cat-tab');
-let currentPanel = 0;
-
-const numBase = ['01','02','03'];
-
-function goToPanel(idx, fromTouch) {
-  currentPanel = idx;
-  track.style.transform = 'translateX(-' + (idx * 100) + '%)';
-  tabs.forEach((t, i) => {
-    const wasActive = t.classList.contains('active');
-    t.classList.toggle('active', i === idx);
-    // update num label text
-    const num = t.querySelector('.cat-tab-num');
-    if (num) num.textContent = i === idx ? numBase[i] + ' — Aktīvs' : numBase[i];
-  });
-  // scroll category selector into view on mobile if triggered by touch
-  if (fromTouch) {
-    const wrap = document.querySelector('.cats-wrap');
-    const wrapBottom = wrap.getBoundingClientRect().bottom;
-    if (wrapBottom < 0 || wrapBottom > window.innerHeight * 0.5) {
-      wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-  // trigger scroll reveal
-  setTimeout(() => {
-    document.querySelectorAll('.sr').forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight + 80) el.classList.add('in');
-    });
-  }, 120);
-}
-
-tabs.forEach((tab, i) => {
-  tab.addEventListener('click', () => goToPanel(i, false));
-});
-
-// Touch swipe on the panel track itself
-let touchStartX = 0, touchStartY = 0, isSwiping = false;
-const viewport = track.parentElement;
-
-viewport.addEventListener('touchstart', e => {
-  touchStartX = e.touches[0].clientX;
-  touchStartY = e.touches[0].clientY;
-  isSwiping = false;
-}, { passive: true });
-
-viewport.addEventListener('touchmove', e => {
-  const dx = Math.abs(e.touches[0].clientX - touchStartX);
-  const dy = Math.abs(e.touches[0].clientY - touchStartY);
-  if (dx > dy && dx > 8) isSwiping = true;
-}, { passive: true });
-
-viewport.addEventListener('touchend', e => {
-  if (!isSwiping) return;
-  const diff = touchStartX - e.changedTouches[0].clientX;
-  if (Math.abs(diff) > 45) {
-    if (diff > 0 && currentPanel < tabs.length - 1) goToPanel(currentPanel + 1, true);
-    else if (diff < 0 && currentPanel > 0) goToPanel(currentPanel - 1, true);
-  }
-  isSwiping = false;
-});
-
-// Keyboard arrow navigation when focused on tabs
-document.querySelector('.cats-inner').addEventListener('keydown', e => {
-  if (e.key === 'ArrowRight' && currentPanel < 2) goToPanel(currentPanel + 1);
-  if (e.key === 'ArrowLeft' && currentPanel > 0) goToPanel(currentPanel - 1);
-});
-
-// ── SCROLL REVEAL ──
+// ── GLOBAL SCROLL REVEAL ──
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
 }, { threshold: 0.07 });
 document.querySelectorAll('.sr').forEach(el => obs.observe(el));
+
+// ── REUSABLE PANEL SWITCHER LOGIC ──
+function initTabs(containerId, trackId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  const track = document.getElementById(trackId);
+  const tabs = container.querySelectorAll('.cat-tab');
+  let currentPanel = 0;
+  const numBase = ['01','02','03'];
+
+  function goToPanel(idx, fromTouch) {
+    currentPanel = idx;
+    track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+    tabs.forEach((t, i) => {
+      t.classList.toggle('active', i === idx);
+      const num = t.querySelector('.cat-tab-num');
+      if (num) num.textContent = i === idx ? numBase[i] + ' — Aktīvs' : numBase[i];
+    });
+    
+    if (fromTouch) {
+      const wrap = container.querySelector('.cats-wrap');
+      const wrapBottom = wrap.getBoundingClientRect().bottom;
+      if (wrapBottom < 0 || wrapBottom > window.innerHeight * 0.5) {
+        wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+    
+    setTimeout(() => {
+      container.querySelectorAll('.sr').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight + 80) el.classList.add('in');
+      });
+    }, 120);
+  }
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => goToPanel(i, false));
+  });
+
+  let touchStartX = 0, touchStartY = 0, isSwiping = false;
+  const viewport = track.parentElement;
+
+  viewport.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    isSwiping = false;
+  }, { passive: true });
+
+  viewport.addEventListener('touchmove', e => {
+    const dx = Math.abs(e.touches[0].clientX - touchStartX);
+    const dy = Math.abs(e.touches[0].clientY - touchStartY);
+    if (dx > dy && dx > 8) isSwiping = true;
+  }, { passive: true });
+
+  viewport.addEventListener('touchend', e => {
+    if (!isSwiping) return;
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 45) {
+      if (diff > 0 && currentPanel < tabs.length - 1) goToPanel(currentPanel + 1, true);
+      else if (diff < 0 && currentPanel > 0) goToPanel(currentPanel - 1, true);
+    }
+    isSwiping = false;
+  });
+
+  container.querySelector('.cats-inner').addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' && currentPanel < tabs.length - 1) goToPanel(currentPanel + 1);
+    if (e.key === 'ArrowLeft' && currentPanel > 0) goToPanel(currentPanel - 1);
+  });
+}
+
+// Initializējam abus blokus
+initTabs('iekārtas', 'panelsTrack');
+initTabs('rezerves-dalas', 'partsTrack');
 
 // ── FORM ──
 document.getElementById('cf').addEventListener('submit', function(e) {
