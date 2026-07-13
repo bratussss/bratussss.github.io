@@ -322,15 +322,15 @@ footer{{background:#1a1a1a;padding:40px var(--gutter) 20px}}
     <div class="nav-logo-lv">Latvija <em>·</em> LV</div>
   </div>
   <div class="nav-links">
-    <a href="../#"iekārtas">Iekārtas</a>
-    <a href="../#"rezerves-dalas">Rezerves daļas</a>
-    <a href="../#"par-mums">Par mums</a>
-    <a href="../#"kontakts">Kontakti</a>
+    <a href="/#"iekārtas">Iekārtas</a>
+    <a href="/#"rezerves-dalas">Rezerves daļas</a>
+    <a href="/#"par-mums">Par mums</a>
+    <a href="/#"kontakts">Kontakti</a>
     <a href="https://bratus.lv" target="_blank">bratus.lv ↗</a>
   </div>
   <div class="nav-cta">
     <a href="https://bratus.lv" target="_blank" class="btn-ghost">Oficiālais pārstāvis ↗</a>
-    <a href="../#"kontakts" class="btn-accent">Pieteikt</a>
+    <a href="/#"kontakts" class="btn-accent">Pieteikt</a>
   </div>
 </nav>
 
@@ -339,7 +339,7 @@ footer{{background:#1a1a1a;padding:40px var(--gutter) 20px}}
 <div class="breadcrumb">
   <div class="breadcrumb-inner">
     <a href="../">Sākums</a><span style="color:var(--ink3)">/</span>
-    <a href="../#"rezerves-dalas">Rezerves daļas</a><span style="color:var(--ink3)">/</span>
+    <a href="/#"rezerves-dalas">Rezerves daļas</a><span style="color:var(--ink3)">/</span>
     <span class="breadcrumb-current">{full_title}</span>
   </div>
 </div>
@@ -361,7 +361,7 @@ footer{{background:#1a1a1a;padding:40px var(--gutter) 20px}}
       <div class="key-spec"><div class="key-spec-l">Diametrs</div><div class="key-spec-v">{diam}</div></div>
     </div>
     <div class="product-cta">
-      <a href="../#"kontakts" class="btn-primary">Pieprasīt cenu <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="/#"kontakts" class="btn-primary">Pieprasīt cenu <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       <a href="https://www.reci-laser.com/co%E2%82%82-laser-tube/co%E2%82%82-laser-tube-w-series/" target="_blank" class="btn-outline">Reci W Sērija ↗</a>
     </div>
   </div>
@@ -418,7 +418,7 @@ footer{{background:#1a1a1a;padding:40px var(--gutter) 20px}}
 <div class="cta-band">
   <div class="cta-inner">
     <div class="cta-text sr"><h2>Nepieciešama <strong>{name}</strong>?<br><em>Pasūtiet tūlīt</em></h2><p>Oriģinālās Reci CO2 lāzera lampas ar garantiju. Sazinieties ar mums cenu un piegādes jautājumos.</p></div>
-    <div class="cta-btns sr d1"><a href="../#"kontakts" class="btn-primary">Pieprasīt cenu <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a href="https://bratus.lv" target="_blank" class="btn-outline" style="border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.5)">bratus.lv ↗</a></div>
+    <div class="cta-btns sr d1"><a href="/#"kontakts" class="btn-primary">Pieprasīt cenu <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a href="https://bratus.lv" target="_blank" class="btn-outline" style="border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.5)">bratus.lv ↗</a></div>
   </div>
 </div>
 
@@ -426,7 +426,7 @@ footer{{background:#1a1a1a;padding:40px var(--gutter) 20px}}
   <div class="footer-grid">
     <div class="footer-brand"><img src="https://wattsan.com/wp-content/uploads/wattsan_logo-1.svg" alt="Wattsan"><p>Wattsan — profesionālas CNC lāzera iekārtas. Officiālais pārstāvis Latvijā: SIA Bratus.</p></div>
     <div class="footer-col"><h5>Kontakti</h5><a href="tel:+37124424434">+371 24 424 434</a><a href="mailto:sales@bratus.lv">sales@bratus.lv</a><a href="https://bratus.lv" target="_blank">bratus.lv</a></div>
-    <div class="footer-col"><h5>Saites</h5><a href="../#"iekārtas">Iekārtas</a><a href="../#"rezerves-dalas">Rezerves daļas</a><a href="https://www.reci-laser.com/" target="_blank">Reci Laser</a></div>
+    <div class="footer-col"><h5>Saites</h5><a href="/#"iekārtas">Iekārtas</a><a href="/#"rezerves-dalas">Rezerves daļas</a><a href="https://www.reci-laser.com/" target="_blank">Reci Laser</a></div>
   </div>
   <div class="footer-bar"><p>© <span id="yr"></span> SIA <a href="https://bratus.lv" target="_blank">Bratus</a> · Wattsan oficiālais pārstāvis Latvijā</p></div>
 </footer>
