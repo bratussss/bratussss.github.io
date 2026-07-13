@@ -385,7 +385,7 @@ ul { list-style: none; }
 
 /* ── PANEL SLIDER ── */
 .panels-viewport { overflow: hidden; position: relative; width: 100%; }
-.panels-track { display: flex; width: 100%; transition: transform 0.5s var(--ease); will-change: transform; }
+.panels-track { display: flex; align-items: flex-start; width: 100%; transition: transform 0.5s var(--ease); will-change: transform; }
 .panel { width: 100%; min-width: 100%; flex: 0 0 100%; }
 
 /* ── SECTION LAYOUT ── */
@@ -1937,6 +1937,14 @@ function initTabs(containerId, trackId) {
   function goToPanel(idx, fromTouch) {
     currentPanel = idx;
     track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+    // Resize viewport to match the active panel's height
+    const viewport = track.parentElement;
+    const activePanel = track.children[idx];
+    if (activePanel) {
+      viewport.style.height = 'auto';
+      const h = activePanel.getBoundingClientRect().height;
+      viewport.style.height = h + 'px';
+    }
     tabs.forEach((t, i) => {
       t.classList.toggle('active', i === idx);
       const num = t.querySelector('.cat-tab-num');
