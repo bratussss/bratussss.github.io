@@ -1,0 +1,460 @@
+#!/usr/bin/env python3
+"""Generate RECI CO2 laser tube product pages."""
+import os
+
+PRODUCTS_DIR = "products"
+os.makedirs(PRODUCTS_DIR, exist_ok=True)
+
+IMG_BASE = "https://www.reci-laser.com/wp-content/uploads/2022/03"
+BRATUS_IMG_BASE = "https://bratus.lv/cdn/shop/files"
+
+RECI_DATA = [
+    {
+        "slug": "reci-w1",
+        "name": "Reci W1",
+        "label": "CO2 Lāzera Lampa",
+        "cat": "CO2 Lampa · Kompakta",
+        "rated_power": "75 W",
+        "max_power": "90 W",
+        "length": "1110 mm",
+        "diameter": "Φ80 mm",
+        "warranty": "540 dienas (18 mēneši)",
+        "bratus_img": "RECICO2Lampaviss_600x.png?v=1740744485",
+    },
+    {
+        "slug": "reci-w2",
+        "name": "Reci W2",
+        "label": "CO2 Lāzera Lampa",
+        "cat": "CO2 Lampa · Populārākā",
+        "rated_power": "90 W",
+        "max_power": "100 W",
+        "length": "1250 mm",
+        "diameter": "Φ80 mm",
+        "warranty": "540 dienas (18 mēneši)",
+        "bratus_img": "RECICO2Lampaviss_39f4bc91-dbdf-4769-b68b-c0351b5ae034_600x.png?v=1740744569",
+    },
+    {
+        "slug": "reci-w4",
+        "name": "Reci W4",
+        "label": "CO2 Lāzera Lampa",
+        "cat": "CO2 Lampa · Lieljaudas",
+        "rated_power": "100 W",
+        "max_power": "130 W",
+        "length": "1450 mm",
+        "diameter": "Φ80 mm",
+        "warranty": "360 dienas (12 mēneši)",
+        "bratus_img": "RECICO2Lampaviss_600x.png?v=1740744485",
+    },
+    {
+        "slug": "reci-w6",
+        "name": "Reci W6",
+        "label": "CO2 Lāzera Lampa",
+        "cat": "CO2 Lampa · Lieljaudas+",
+        "rated_power": "130 W",
+        "max_power": "160 W",
+        "length": "1680 mm",
+        "diameter": "Φ90 mm",
+        "warranty": "360 dienas (12 mēneši)",
+        "bratus_img": "RECICO2Lampaviss_39f4bc91-dbdf-4769-b68b-c0351b5ae034_600x.png?v=1740744569",
+    },
+    {
+        "slug": "reci-w8",
+        "name": "Reci W8",
+        "label": "CO2 Lāzera Lampa",
+        "cat": "CO2 Lampa · Industriāla",
+        "rated_power": "150 W",
+        "max_power": "180 W",
+        "length": "1850 mm",
+        "diameter": "Φ90 mm",
+        "warranty": "360 dienas (12 mēneši)",
+        "bratus_img": "RECICO2Lampaviss_39f4bc91-dbdf-4769-b68b-c0351b5ae034_600x.png?v=1740744569",
+    },
+]
+
+RECI_GALLERY_IMGS = [
+    "Reci-Laser-Tube-%E8%A7%86%E9%A2%91%E7%94%A8.jpg",
+    "Reci-Laser-Tube.jpeg",
+    "%E6%BF%80%E5%85%89%E7%AE%A1-W%E7%B3%BB%E5%88%973.jpg",
+    "%E6%BF%80%E5%85%89%E7%AE%A1-W%E7%B3%BB%E5%88%974.jpg",
+    "%E6%BF%80%E5%85%89%E7%AE%A1%E7%9A%84%E5%89%AF%E6%9C%AC.jpg",
+]
+
+RECI_FEATURES = [
+    ("3.0 Paaudzes Tehnoloģija", "Jaunākās paaudzes CO2 stikla lāzera caurule — nav regulēšanas skrūvju, CNC precīzi metāla savienojumi."),
+    ("Metāla-Stikla Saķepināšana", "Tieša metāla un stikla detaļu savienošana ar jaunu apdedzināšanas tehnoloģiju — augsta stabilitāte."),
+    (">95% TEM00 Režīms", "Izcila staru kūļa kvalitāte — vairāk nekā 95% TEM00 režīmā nodrošina tīru un precīzu griešanu."),
+    ("Katalizatora Tehnoloģija", "Iebūvēts katalizators pagarina caurules darbmūžu un saglabā stabilu jaudu."),
+    ("Uzlabota Optiskā Resonatora Priekšrocība", "Optiskais resonators ar uzlabotu jaudas pastiprināšanu efektīvākai lāzera darbībai."),
+    ("Radioaktīvi Pārklātas Lēcas", "Augstas kvalitātes lēcas ar speciālu pārklājumu maksimālai veiktspējai."),
+]
+
+RECI_OPTICS = [
+    ("Nominālā izejas jauda", "{rated_power}"),
+    ("Maksimālā izejas jauda", "{max_power}"),
+    ("Staru kūļa kvalitāte", ">95% TEM00 režīms"),
+    ("Optiskais resonators", "Uzlabots jaudas pastiprinājums"),
+    ("Lēcu pārklājums", "Radioaktīvi materiāli pārklātas lēcas"),
+    ("Savienojuma tehnika", "Metāla-stikla saķepināšana"),
+    ("Katalizators", "Jā"),
+]
+RECI_MECH = [
+    ("Garums", "{length}"),
+    ("Diametrs", "{diameter}"),
+    ("Paaudze", "3.0"),
+    ("Regulēšanas skrūves", "Nav (CNC precīzie metāla savienojumi)"),
+    ("Dzesēšana", "Ūdens"),
+    ("Garantija", "{warranty}"),
+    ("Ražotājs", "Reci Laser (Ķīna)"),
+]
+RECI_DIMS = [
+    ("Garums", "{length}"),
+    ("Diametrs", "{diameter}"),
+    ("Svars", "~2–5 kg (atkarīgs no modeļa)"),
+]
+
+def make_reci_page(data):
+    slug = data["slug"]
+    name = data["name"]
+    label = data["label"]
+    cat = data["cat"]
+    rated = data["rated_power"]
+    maxp = data["max_power"]
+    length = data["length"]
+    diam = data["diameter"]
+    warranty = data["warranty"]
+    bratus_img = data["bratus_img"]
+    
+    full_title = f"{name} {label}"
+    page_title = f"{name} — CO2 Lāzera Lampa | Bratus.lv"
+    
+    main_src = f"{BRATUS_IMG_BASE}/{bratus_img}"
+    
+    # Gallery from both sources
+    gallery_sources = [
+        f"{BRATUS_IMG_BASE}/{bratus_img}",
+    ] + [f"{IMG_BASE}/{img}" for img in RECI_GALLERY_IMGS]
+    
+    gallery_html = ""
+    for i, src in enumerate(gallery_sources[:6]):
+        lazy = ' loading="lazy"' if i > 0 else ""
+        labels = ["Produkta attēls", "Reci lāzera caurule", "W Sērijas lampa", "Ražošanas kvalitāte", "Tehniskā detaļa", "Iepakojums"]
+        gallery_html += f'''
+        <div class="showcase-card sr{" d1" if i==1 else " d2" if i==2 else ""}" onclick="openLightbox({i})">
+          <img src="{src}" alt="{full_title}"{lazy}>
+          <div class="showcase-card-label"><span>{labels[i] if i < len(labels) else "Attēls"}</span></div>
+        </div>'''
+    
+    features_html = ""
+    for f in RECI_FEATURES:
+        features_html += f'''
+      <div class="feature-card sr">
+        <div class="feature-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h4>{f[0]}</h4>
+        <p>{f[1]}</p>
+      </div>'''
+    
+    def build_specs_table(specs):
+        html = ""
+        for label, val in specs:
+            v = val.replace("{rated_power}", rated).replace("{max_power}", maxp).replace("{length}", length).replace("{diameter}", diam).replace("{warranty}", warranty)
+            html += f'\n          <div class="specs-row"><span class="specs-row-l">{label}</span><span class="specs-row-v">{v}</span></div>'
+        return html
+    
+    optics_html = build_specs_table(RECI_OPTICS)
+    mech_html = build_specs_table(RECI_MECH)
+    dims_html = build_specs_table(RECI_DIMS)
+    
+    thumbs = ""
+    for i, src in enumerate(gallery_sources[:5]):
+        active = ' active' if i == 0 else ""
+        thumbs += f'''
+      <img class="gallery-thumb{active}" src="{src}" onclick="document.getElementById('mainImg').src=this.src; document.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active')">'''
+    
+    # Nav sub with all W models
+    nav_links = ""
+    for d in RECI_DATA:
+        act = ' class="active"' if d["slug"] == slug else ""
+        nav_links += f'<a href="{d["slug"]}.html"{act}>{d["name"]}</a>'
+    nav_sub = f'<div class="nav-sub"><div class="nav-sub-inner"><span>Reci W Sērija:</span>{nav_links}</div></div>'
+    
+    html = f'''<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{page_title}</title>
+<meta name="description" content="{name} — profesionāla Reci CO2 lāzera caurule ar {rated} nominālo jaudu. Oriģinālā Reci W sērija. Wattsan oficiālais pārstāvis Latvijā.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
+html{{scroll-behavior:smooth}}
+body{{font-family:'Inter',sans-serif;background:#fff;color:#1a1a1a;overflow-x:hidden;-webkit-font-smoothing:antialiased}}
+a{{text-decoration:none;color:inherit}}
+img{{display:block}}
+:root{{--bg:#fff;--bg2:#f5f5f5;--bg3:#eee;--ink:#1a1a1a;--ink2:#555;--ink3:#999;--accent:#E63C32;--border:rgba(0,0,0,0.09);--border2:rgba(0,0,0,0.15);--max:1280px;--ease:cubic-bezier(.22,1,.36,1);--gutter:clamp(20px,5vw,64px)}}
+.nav{{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--gutter);background:rgba(255,255,255,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}}
+.nav-logo{{display:flex;align-items:center;gap:14px}}
+.nav-logo img{{height:22px;width:auto}}
+.nav-logo-sep{{width:1px;height:18px;background:var(--border2)}}
+.nav-logo-lv{{font-family:'Plus Jakarta Sans',sans-serif;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink2);font-weight:400}}
+.nav-logo-lv em{{font-style:normal;color:var(--accent)}}
+.nav-links{{display:flex;align-items:center;gap:28px}}
+.nav-links a{{font-size:0.73rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink2);transition:color 0.2s;font-weight:400}}
+.nav-links a:hover{{color:var(--ink)}}
+.nav-cta{{display:flex;align-items:center;gap:10px}}
+.btn-ghost{{padding:8px 18px;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;border:1px solid var(--border2);color:var(--ink2);transition:all 0.2s;font-weight:400;white-space:nowrap}}
+.btn-ghost:hover{{border-color:var(--ink);color:var(--ink)}}
+.btn-accent{{padding:9px 20px;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;background:var(--accent);color:#fff;font-weight:500;transition:background 0.2s;white-space:nowrap}}
+.btn-accent:hover{{background:#c42e25}}
+.nav-mobile-btn{{display:none;background:none;border:none;cursor:pointer;color:var(--ink)}}
+@media(max-width:860px){{.nav-links{{display:none}}.nav-mobile-btn{{display:flex;align-items:center}}.btn-ghost{{display:none}}}}
+.nav-sub{{background:var(--bg2);border-bottom:1px solid var(--border);padding:8px 0;margin-top:64px;overflow-x:auto;scrollbar-width:none}}
+.nav-sub::-webkit-scrollbar{{display:none}}
+.nav-sub-inner{{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);display:flex;gap:6px;align-items:center}}
+.nav-sub span{{font-size:0.56rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);white-space:nowrap;margin-right:8px}}
+.nav-sub a{{font-size:0.62rem;padding:5px 10px;border:1px solid var(--border);color:var(--ink2);white-space:nowrap;transition:all 0.15s;letter-spacing:0.04em;flex-shrink:0}}
+.nav-sub a:hover,.nav-sub a.active{{border-color:var(--accent);color:var(--accent);background:rgba(230,60,50,0.04)}}
+.breadcrumb{{padding:0 var(--gutter);max-width:var(--max);margin:0 auto}}
+.breadcrumb-inner{{display:flex;align-items:center;gap:8px;font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);padding:16px 0;border-bottom:1px solid var(--border);flex-wrap:wrap}}
+.breadcrumb-inner a{{color:var(--ink3);transition:color 0.2s;white-space:nowrap}}
+.breadcrumb-inner a:hover{{color:var(--accent)}}
+.breadcrumb-current{{color:var(--ink);font-weight:500}}
+.product-hero{{max-width:var(--max);margin:0 auto;padding:32px var(--gutter);display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start}}
+@media(max-width:860px){{.product-hero{{grid-template-columns:1fr;gap:28px}}}}
+.product-gallery{{position:relative}}
+.gallery-main{{width:100%;aspect-ratio:4/3;object-fit:contain;background:var(--bg2);border:1px solid var(--border)}}
+.gallery-thumbs{{display:flex;gap:8px;margin-top:10px;overflow-x:auto}}
+.gallery-thumb{{width:70px;height:52px;object-fit:cover;border:1px solid var(--border);cursor:pointer;opacity:0.6;transition:opacity 0.2s,border-color 0.2s;flex-shrink:0}}
+.gallery-thumb:hover,.gallery-thumb.active{{opacity:1;border-color:var(--accent)}}
+.product-info{{display:flex;flex-direction:column;gap:16px}}
+.product-badge{{display:inline-flex;align-items:center;gap:7px;background:rgba(230,60,50,0.1);border:1px solid rgba(230,60,50,0.25);padding:5px 12px;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);font-weight:600;width:fit-content}}
+.product-badge-dot{{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:pulse 2s ease infinite}}
+@keyframes pulse{{0%,100%{{opacity:1}}50%{{opacity:.35}}}}
+.product-title{{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.8rem,3.2vw,2.8rem);font-weight:300;letter-spacing:-0.03em;line-height:1.08;color:var(--ink)}}
+.product-title strong{{font-weight:700}}
+.product-subtitle{{font-size:0.9rem;color:var(--ink2);line-height:1.7;font-weight:300}}
+.key-specs{{display:flex;gap:20px;flex-wrap:wrap;padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}}
+.key-spec{{display:flex;flex-direction:column;gap:3px}}
+.key-spec-l{{font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3)}}
+.key-spec-v{{font-size:1rem;font-weight:400;color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif}}
+.product-cta{{display:flex;gap:10px;flex-wrap:wrap}}
+.btn-primary{{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:var(--accent);color:#fff;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;transition:all 0.22s var(--ease)}}
+.btn-primary:hover{{background:#c42e25;transform:translateY(-2px)}}
+.btn-outline{{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border:1px solid var(--border2);color:var(--ink2);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:400;transition:all 0.22s}}
+.btn-outline:hover{{border-color:var(--accent);color:var(--accent)}}
+.section{{padding:clamp(40px,6vw,72px) var(--gutter)}}
+.section-max{{max-width:var(--max);margin:0 auto}}
+.section-title{{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:300;letter-spacing:-0.03em;line-height:1.1;color:var(--ink);margin-bottom:10px}}
+.section-title strong{{font-weight:700}}
+.section-title em{{font-style:italic;color:var(--ink2)}}
+.eyebrow{{display:inline-flex;align-items:center;gap:10px;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px}}
+.eyebrow::before{{content:'';width:20px;height:1px;background:var(--accent);display:block}}
+.specs-grid{{display:grid;grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:700px){{.specs-grid{{grid-template-columns:1fr}}}}
+.specs-block h3{{font-family:'Plus Jakarta Sans',sans-serif;font-size:0.8rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--accent);display:inline-block}}
+.specs-row{{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);font-size:0.82rem}}
+.specs-row-l{{color:var(--ink2);font-weight:300}}
+.specs-row-v{{color:var(--ink);font-weight:400;text-align:right}}
+.features-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}}
+.feature-card{{padding:20px;background:var(--bg2);border:1px solid var(--border);transition:border-color 0.2s}}
+.feature-card:hover{{border-color:rgba(230,60,50,0.25)}}
+.feature-card-icon{{width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:rgba(230,60,50,0.1);margin-bottom:10px}}
+.feature-card-icon svg{{width:14px;height:14px;color:var(--accent)}}
+.feature-card h4{{font-family:'Plus Jakarta Sans',sans-serif;font-size:0.88rem;font-weight:500;color:var(--ink);margin-bottom:5px}}
+.feature-card p{{font-size:0.74rem;color:var(--ink2);line-height:1.55;font-weight:300}}
+.showcase-wrap{{position:relative}}
+.showcase-scroll{{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-top:24px;padding-bottom:6px;scroll-behavior:smooth}}
+.showcase-scroll::-webkit-scrollbar{{display:none}}
+.showcase-card{{flex:0 0 clamp(280px,38vw,480px);scroll-snap-align:start;position:relative;overflow:hidden;border:1px solid var(--border);background:var(--bg2);cursor:pointer;transition:border-color 0.25s}}
+.showcase-card:hover{{border-color:var(--accent)}}
+.showcase-card img{{width:100%;height:280px;object-fit:cover;transition:transform 0.5s var(--ease)}}
+.showcase-card:hover img{{transform:scale(1.04)}}
+.showcase-card-label{{position:absolute;bottom:0;left:0;right:0;padding:12px 16px;background:linear-gradient(to top,rgba(0,0,0,0.7),transparent)}}
+.showcase-card-label span{{font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:#fff;font-weight:500}}
+.showcase-arrow{{position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.08);transition:all 0.2s;opacity:0.85}}
+.showcase-arrow:hover{{opacity:1;border-color:var(--accent)}}
+.showcase-arrow svg{{width:16px;height:16px;color:var(--ink)}}
+.showcase-arrow.prev{{left:-6px}}.showcase-arrow.next{{right:-6px}}
+@media(max-width:700px){{.showcase-arrow{{display:none}}}}
+.showcase-hint{{display:none;align-items:center;gap:8px;justify-content:flex-end;margin-top:12px;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3)}}
+@media(max-width:700px){{.showcase-hint{{display:flex}}}}
+.lightbox{{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.92);align-items:center;justify-content:center}}
+.lightbox.open{{display:flex}}
+.lightbox img{{max-width:92vw;max-height:90vh;object-fit:contain}}
+.lightbox-close{{position:absolute;top:24px;right:32px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;opacity:0.6;transition:opacity 0.2s;font-family:'Inter',sans-serif}}
+.lightbox-close:hover{{opacity:1}}
+.lightbox-prev,.lightbox-next{{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.1);border:none;color:#fff;font-size:2rem;cursor:pointer;padding:12px 16px;transition:background 0.2s}}
+.lightbox-prev:hover,.lightbox-next:hover{{background:rgba(255,255,255,0.2)}}
+.lightbox-prev{{left:20px}}.lightbox-next{{right:20px}}
+.cta-band{{background:#1a1a1a;padding:clamp(40px,6vw,70px) var(--gutter);position:relative;overflow:hidden}}
+.cta-band::before{{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(230,60,50,0.5),transparent)}}
+.cta-inner{{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}}
+.cta-text h2{{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:300;letter-spacing:-0.03em;color:#fff;margin-bottom:6px;line-height:1.1}}
+.cta-text h2 strong{{font-weight:700}}
+.cta-text h2 em{{font-style:italic;color:rgba(255,255,255,0.35)}}
+.cta-text p{{font-size:0.82rem;color:rgba(255,255,255,0.4);font-weight:300;max-width:360px;line-height:1.7}}
+.cta-btns{{display:flex;gap:10px;flex-wrap:wrap}}
+footer{{background:#1a1a1a;padding:40px var(--gutter) 20px}}
+.footer-grid{{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr;gap:32px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,0.08)}}
+.footer-brand img{{height:18px;filter:brightness(10);opacity:0.65;margin-bottom:12px}}
+.footer-brand p{{font-size:0.74rem;color:rgba(255,255,255,0.3);line-height:1.7;font-weight:300;max-width:200px}}
+.footer-col h5{{font-size:0.56rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.22);margin-bottom:12px;font-weight:500}}
+.footer-col a,.footer-col p{{display:block;font-size:0.74rem;color:rgba(255,255,255,0.32);margin-bottom:6px;transition:color 0.2s;font-weight:300}}
+.footer-col a:hover{{color:rgba(255,255,255,0.65)}}
+.footer-bar{{max-width:var(--max);margin:18px auto 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}}
+.footer-bar p{{font-size:0.64rem;color:rgba(255,255,255,0.22);font-weight:300}}
+.footer-bar a{{color:rgba(255,255,255,0.3);transition:color 0.2s}}
+.footer-bar a:hover{{color:rgba(255,255,255,0.55)}}
+@media(max-width:860px){{.footer-grid{{grid-template-columns:1fr 1fr}}.footer-brand{{grid-column:1/-1}}}}
+.sr{{opacity:0;transform:translateY(16px);transition:opacity 0.6s var(--ease),transform 0.6s var(--ease)}}
+.sr.in{{opacity:1;transform:translateY(0)}}
+.d1{{transition-delay:0.07s}}.d2{{transition-delay:0.14s}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">
+    <a href="../index.html"><img src="https://wattsan.com/wp-content/uploads/wattsan_logo-1.svg" alt="Wattsan"></a>
+    <div class="nav-logo-sep"></div>
+    <div class="nav-logo-lv">Latvija <em>·</em> LV</div>
+  </div>
+  <div class="nav-links">
+    <a href="../index.html#iekārtas">Iekārtas</a>
+    <a href="../index.html#rezerves-dalas">Rezerves daļas</a>
+    <a href="../index.html#par-mums">Par mums</a>
+    <a href="../index.html#kontakts">Kontakti</a>
+    <a href="https://bratus.lv" target="_blank">bratus.lv ↗</a>
+  </div>
+  <div class="nav-cta">
+    <a href="https://bratus.lv" target="_blank" class="btn-ghost">Oficiālais pārstāvis ↗</a>
+    <a href="../index.html#kontakts" class="btn-accent">Pieteikt</a>
+  </div>
+</nav>
+
+{nav_sub}
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../index.html">Sākums</a><span style="color:var(--ink3)">/</span>
+    <a href="../index.html#rezerves-dalas">Rezerves daļas</a><span style="color:var(--ink3)">/</span>
+    <span class="breadcrumb-current">{full_title}</span>
+  </div>
+</div>
+
+<section class="product-hero">
+  <div class="product-gallery sr">
+    <img class="gallery-main" id="mainImg" src="{main_src}" alt="{full_title}">
+    <div class="gallery-thumbs">{thumbs}
+    </div>
+  </div>
+  <div class="product-info sr d1">
+    <div class="product-badge"><span class="product-badge-dot"></span>Oriģinālā Reci 3.0 Paaudze</div>
+    <h1 class="product-title">{name}<br><strong>CO2 Lāzera Lampa</strong><br><em>{cat}</em></h1>
+    <p class="product-subtitle">Reci W sērijas CO2 stikla lāzera caurule — 3.0 paaudzes tehnoloģija ar metāla-stikla saķepināšanu, >95% TEM00 staru kūļa kvalitāti un iebūvētu katalizatoru. Oriģinālā Reci produkcija ar garantiju.</p>
+    <div class="key-specs">
+      <div class="key-spec"><div class="key-spec-l">Nominālā jauda</div><div class="key-spec-v">{rated}</div></div>
+      <div class="key-spec"><div class="key-spec-l">Maksimālā jauda</div><div class="key-spec-v">{maxp}</div></div>
+      <div class="key-spec"><div class="key-spec-l">Garums</div><div class="key-spec-v">{length}</div></div>
+      <div class="key-spec"><div class="key-spec-l">Diametrs</div><div class="key-spec-v">{diam}</div></div>
+    </div>
+    <div class="product-cta">
+      <a href="../index.html#kontakts" class="btn-primary">Pieprasīt cenu <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="https://www.reci-laser.com/co%E2%82%82-laser-tube/co%E2%82%82-laser-tube-w-series/" target="_blank" class="btn-outline">Reci W Sērija ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg2);border-top:1px solid var(--border)">
+  <div class="section-max">
+    <div class="eyebrow sr">Galvenās īpašības</div>
+    <h2 class="section-title sr d1">Kāpēc <strong>{name}</strong>?</h2>
+    <div class="features-grid" style="margin-top:28px">{features_html}
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg);border-top:1px solid var(--border)">
+  <div class="section-max">
+    <div class="eyebrow sr">Galerija</div>
+    <h2 class="section-title sr d1"><strong>Produkta</strong> <em>attēli</em></h2>
+    <div class="showcase-wrap">
+      <button class="showcase-arrow prev" onclick="scrollShowcase(-1)" aria-label="Iepriekšējais"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <div class="showcase-scroll" id="showcaseScroll">{gallery_html}
+      </div>
+      <button class="showcase-arrow next" onclick="scrollShowcase(1)" aria-label="Nākamais"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+    <div class="showcase-hint"><span>Velc, lai redzētu vairāk</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-prev" onclick="navLightbox(-1)">‹</button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-next" onclick="navLightbox(1)">›</button>
+</div>
+
+<section class="section" style="background:#fff">
+  <div class="section-max">
+    <div class="eyebrow sr">Tehniskie parametri</div>
+    <h2 class="section-title sr d1">Detalizēta <strong>specifikācija</strong></h2>
+    <div class="specs-grid" style="margin-top:28px">
+      <div class="specs-block sr"><h3>Optika & Veiktspēja</h3><div class="specs-table">{optics_html}
+        </div>
+      </div>
+      <div class="specs-block sr d1"><h3>Mehāniskie Parametri</h3><div class="specs-table">{mech_html}
+        </div>
+      </div>
+    </div>
+    <div class="specs-block sr d2" style="margin-top:32px"><h3>Izmēri</h3><div class="specs-table">{dims_html}
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="cta-inner">
+    <div class="cta-text sr"><h2>Nepieciešama <strong>{name}</strong>?<br><em>Pasūtiet tūlīt</em></h2><p>Oriģinālās Reci CO2 lāzera lampas ar garantiju. Sazinieties ar mums cenu un piegādes jautājumos.</p></div>
+    <div class="cta-btns sr d1"><a href="../index.html#kontakts" class="btn-primary">Pieprasīt cenu <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a href="https://bratus.lv" target="_blank" class="btn-outline" style="border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.5)">bratus.lv ↗</a></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><img src="https://wattsan.com/wp-content/uploads/wattsan_logo-1.svg" alt="Wattsan"><p>Wattsan — profesionālas CNC lāzera iekārtas. Officiālais pārstāvis Latvijā: SIA Bratus.</p></div>
+    <div class="footer-col"><h5>Kontakti</h5><a href="tel:+37124424434">+371 24 424 434</a><a href="mailto:sales@bratus.lv">sales@bratus.lv</a><a href="https://bratus.lv" target="_blank">bratus.lv</a></div>
+    <div class="footer-col"><h5>Saites</h5><a href="../index.html#iekārtas">Iekārtas</a><a href="../index.html#rezerves-dalas">Rezerves daļas</a><a href="https://www.reci-laser.com/" target="_blank">Reci Laser</a></div>
+  </div>
+  <div class="footer-bar"><p>© <span id="yr"></span> SIA <a href="https://bratus.lv" target="_blank">Bratus</a> · Wattsan oficiālais pārstāvis Latvijā</p></div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+const obs=new IntersectionObserver(e=>{{e.forEach(x=>{{if(x.isIntersecting){{x.target.classList.add('in');obs.unobserve(x.target)}}}})}},{{threshold:0.07}});
+document.querySelectorAll('.sr').forEach(el=>obs.observe(el));
+const galleryImages=[{", ".join(f'"{src}"' for src in gallery_sources[:6])}];
+let currentIdx=0;
+const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lightboxImg');
+function openLightbox(idx){{currentIdx=idx;lbImg.src=galleryImages[idx];lb.classList.add('open');document.body.style.overflow='hidden'}}
+function closeLightbox(){{lb.classList.remove('open');document.body.style.overflow=''}}
+function navLightbox(dir){{currentIdx=(currentIdx+dir+galleryImages.length)%galleryImages.length;lbImg.src=galleryImages[currentIdx]}}
+lb.addEventListener('click',e=>{{if(e.target===lb)closeLightbox()}});
+document.addEventListener('keydown',e=>{{if(lb.classList.contains('open')){{if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')navLightbox(-1);if(e.key==='ArrowRight')navLightbox(1);return}}if(e.key==='ArrowLeft')scrollShowcase(-1);if(e.key==='ArrowRight')scrollShowcase(1)}});
+function scrollShowcase(dir){{const el=document.getElementById('showcaseScroll'),card=el.querySelector('.showcase-card');if(card)el.scrollBy({{left:dir*(card.offsetWidth+12),behavior:'smooth'}})}}
+</script>
+</body>
+</html>'''
+    
+    html = html.replace("{nav_sub}", nav_sub)
+    path = os.path.join(PRODUCTS_DIR, f"{slug}.html")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(html)
+    print(f"  ✓ {slug}.html")
+
+for data in RECI_DATA:
+    make_reci_page(data)
+
+print(f"\n✅ Generated {len(RECI_DATA)} Reci CO2 lamp product pages in '{PRODUCTS_DIR}/'")
