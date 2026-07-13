@@ -60,7 +60,7 @@ marker_links = {
 count = 0
 for slug, old_url in {**co2_links, **metal_links, **marker_links}.items():
     old_href = f'href="https://{old_url}" target="_blank"'
-    new_href = f'href="products/{slug}.html"'
+    new_href = f'href="/products/{slug}/index/"'
     if old_href in content:
         content = content.replace(old_href, new_href)
         count += 1
