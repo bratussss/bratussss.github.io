@@ -164,7 +164,28 @@ for data in CHILLER_DATA:
     
     # Thumbs
     thumbs = f'''<img class="gallery-thumb active" src="{img}" onclick="document.getElementById('mainImg').src=this.src">'''
-    
+
+    canonical = f"https://bratussss.github.io/products/{slug}/"
+    jsonld = f'''<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{name}",
+  "description": "{name} — TEYU industriālais dzesētājs. {cat}.",
+  "url": "{canonical}",
+  "brand": {{"@type": "Brand", "name": "TEYU Chiller"}},
+  "manufacturer": {{"@type": "Organization", "name": "TEYU Chiller"}},
+  "image": "{img}",
+  "offers": {{
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "priceCurrency": "EUR",
+    "seller": {{"@type": "Organization", "name": "SIA Bratus"}}
+  }}
+}}
+</script>'''
+
     html = f'''<!DOCTYPE html>
 <html lang="lv">
 <head>
@@ -236,7 +257,10 @@ for data in CHILLER_DATA:
 .footer-col a,.footer-col p{{display:block;font-size:0.74rem;color:rgba(255,255,255,0.32);margin-bottom:6px;transition:color 0.2s;font-weight:300}}.footer-col a:hover{{color:rgba(255,255,255,0.65)}}
 .footer-bar{{max-width:var(--max);margin:18px auto 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}}.footer-bar p{{font-size:0.64rem;color:rgba(255,255,255,0.22);font-weight:300}}.footer-bar a{{color:rgba(255,255,255,0.3);transition:color 0.2s}}.footer-bar a:hover{{color:rgba(255,255,255,0.55)}}
 @media(max-width:860px){{.footer-grid{{grid-template-columns:1fr 1fr}}.footer-brand{{grid-column:1/-1}}}}.sr{{opacity:0;transform:translateY(16px);transition:opacity 0.6s var(--ease),transform 0.6s var(--ease)}}.sr.in{{opacity:1;transform:translateY(0)}}.d1{{transition-delay:0.07s}}.d2{{transition-delay:0.14s}}
-</style></head><body>
+</style>
+<link rel="canonical" href="{canonical}">
+{jsonld}
+</head><body>
 <nav class="nav"><div class="nav-logo"><a href="/"><img src="https://wattsan.com/wp-content/uploads/wattsan_logo-1.svg" alt="Wattsan"></a><div class="nav-logo-sep"></div><div class="nav-logo-lv">Latvija <em>·</em> LV</div></div><div class="nav-links"><a href="/#"iekārtas">Iekārtas</a><a href="/#"rezerves-dalas">Rezerves daļas</a><a href="/#"par-mums">Par mums</a><a href="/#"kontakts">Kontakti</a><a href="https://bratus.lv" target="_blank">bratus.lv ↗</a></div><div class="nav-cta"><a href="https://bratus.lv" target="_blank" class="btn-ghost">Oficiālais pārstāvis ↗</a><a href="/#"kontakts" class="btn-accent">Pieteikt</a></div></nav>
 {nav_sub}
 <div class="breadcrumb"><div class="breadcrumb-inner"><a href="../">Sākums</a><span style="color:var(--ink3)">/</span><a href="/#"rezerves-dalas">Rezerves daļas</a><span style="color:var(--ink3)">/</span><span class="breadcrumb-current">{name}</span></div></div>

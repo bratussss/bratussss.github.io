@@ -405,6 +405,27 @@ def make_page(filename, name, label, cat, cat_lv, work_area, power, speed, sourc
     
     desc = desc_text or f"Profesionāla {'CO2 lāzera' if 'CO2' in cat else 'šķiedru lāzera metāla griešanas' if 'lāzeris' in cat else 'lāzera marķēšanas'} iekārta {full_title} ar {work_area} darba zonu{' un ' + power + ' jaudu' if power else ''}. Wattsan oficiālais pārstāvis Latvijā — Bratus.lv."
     
+    canonical = f"https://bratussss.github.io/products/{filename}/"
+    jsonld_schema = f'''<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{full_title}",
+  "description": "{desc}",
+  "url": "{canonical}",
+  "brand": {{"@type": "Brand", "name": "Wattsan"}},
+  "manufacturer": {{"@type": "Organization", "name": "Wattsan"}},
+  "image": "{IMG_BASE}/{main_img}",
+  "offers": {{
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "priceCurrency": "EUR",
+    "seller": {{"@type": "Organization", "name": "SIA Bratus"}}
+  }}
+}}
+</script>'''
+    
     html = f'''<!DOCTYPE html>
 <html lang="lv">
 <head>
@@ -559,6 +580,8 @@ footer{{background:#1a1a1a;padding:40px var(--gutter) 20px}}
 .sr.in{{opacity:1;transform:translateY(0)}}
 .d1{{transition-delay:0.07s}}.d2{{transition-delay:0.14s}}.d3{{transition-delay:0.21s}}
 </style>
+<link rel="canonical" href="{canonical}">
+{jsonld_schema}
 </head>
 <body>
 

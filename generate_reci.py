@@ -176,7 +176,28 @@ def make_reci_page(data):
         act = ' class="active"' if d["slug"] == slug else ""
         nav_links += f'<a href="{d["slug"]}.html"{act}>{d["name"]}</a>'
     nav_sub = f'<div class="nav-sub"><div class="nav-sub-inner"><span>Reci W Sērija:</span>{nav_links}</div></div>'
-    
+
+    canonical = f"https://bratussss.github.io/products/{slug}/"
+    jsonld = f'''<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{full_title}",
+  "description": "{name} — profesionāla Reci CO2 lāzera caurule ar {rated} nominālo jaudu.",
+  "url": "{canonical}",
+  "brand": {{"@type": "Brand", "name": "Reci Laser"}},
+  "manufacturer": {{"@type": "Organization", "name": "Reci Laser"}},
+  "image": "{gallery_sources[0] if gallery_sources else ''}",
+  "offers": {{
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "priceCurrency": "EUR",
+    "seller": {{"@type": "Organization", "name": "SIA Bratus"}}
+  }}
+}}
+</script>'''
+
     html = f'''<!DOCTYPE html>
 <html lang="lv">
 <head>
@@ -312,6 +333,8 @@ footer{{background:#1a1a1a;padding:40px var(--gutter) 20px}}
 .sr.in{{opacity:1;transform:translateY(0)}}
 .d1{{transition-delay:0.07s}}.d2{{transition-delay:0.14s}}
 </style>
+<link rel="canonical" href="{canonical}">
+{jsonld}
 </head>
 <body>
 
