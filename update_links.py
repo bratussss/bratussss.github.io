@@ -1,6 +1,6 @@
 import re
 
-with open("index.html", "r", encoding="utf-8") as f:
+with open("../index/", "r", encoding="utf-8") as f:
     content = f.read()
 
 # CO2 product links
@@ -75,7 +75,7 @@ for slug, old_url in {**co2_links, **metal_links, **marker_links}.items():
         else:
             print(f"  ✗ {slug}: {old_url} not found")
 
-with open("index.html", "w", encoding="utf-8") as f:
+with open("../index/", "w", encoding="utf-8") as f:
     f.write(content)
 
 print(f"\n✅ Updated {count} links in index.html")
