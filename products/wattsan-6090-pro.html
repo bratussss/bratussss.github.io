@@ -190,11 +190,11 @@ footer{background:#1a1a1a;padding:40px var(--gutter) 20px}
   <div class="product-gallery sr">
     <img class="gallery-main" id="mainImg" src="https://wattsan.com/wp-content/uploads/laser-co2-6090-pro-1-result.webp" alt="Wattsan 6090 PRO">
     <div class="gallery-thumbs">
-      <img class="gallery-thumb active" src="https://wattsan.com/wp-content/uploads/6090-PRO-38.webp" onclick="document.getElementById('mainImg').src=this.src; document.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active')">
+      <img class="gallery-thumb active" src="https://wattsan.com/wp-content/uploads/laser-co2-6090-pro-1-result.webp" onclick="document.getElementById('mainImg').src=this.src; document.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active')">
+      <img class="gallery-thumb" src="https://wattsan.com/wp-content/uploads/6090-PRO-38.webp" onclick="document.getElementById('mainImg').src=this.src; document.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active')">
       <img class="gallery-thumb" src="https://wattsan.com/wp-content/uploads/6090-PRO-11.webp" onclick="document.getElementById('mainImg').src=this.src; document.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active')">
       <img class="gallery-thumb" src="https://wattsan.com/wp-content/uploads/6090-PRO-6-e1757493445533.webp" onclick="document.getElementById('mainImg').src=this.src; document.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active')">
       <img class="gallery-thumb" src="https://wattsan.com/wp-content/uploads/6090-PRO-47.webp" onclick="document.getElementById('mainImg').src=this.src; document.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active')">
-      <img class="gallery-thumb" src="https://wattsan.com/wp-content/uploads/09-cnc-machines-products-gallery.webp" onclick="document.getElementById('mainImg').src=this.src; document.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active')">
     </div>
   </div>
   <div class="product-info sr d1">
@@ -261,27 +261,27 @@ footer{background:#1a1a1a;padding:40px var(--gutter) 20px}
       <button class="showcase-arrow prev" onclick="scrollShowcase(-1)" aria-label="Iepriekšējais"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
       <div class="showcase-scroll" id="showcaseScroll">
         <div class="showcase-card sr" onclick="openLightbox(0)">
-          <img src="https://wattsan.com/wp-content/uploads/6090-PRO-38.webp" alt="Wattsan 6090 PRO">
+          <img src="https://wattsan.com/wp-content/uploads/laser-co2-6090-pro-1-result.webp" alt="Wattsan 6090 PRO">
           <div class="showcase-card-label"><span>Pilns iekārtas skats</span></div>
         </div>
         <div class="showcase-card sr d1" onclick="openLightbox(1)">
-          <img src="https://wattsan.com/wp-content/uploads/6090-PRO-11.webp" alt="Wattsan 6090 PRO" loading="lazy">
+          <img src="https://wattsan.com/wp-content/uploads/6090-PRO-38.webp" alt="Wattsan 6090 PRO" loading="lazy">
           <div class="showcase-card-label"><span>Lāzera detaļa</span></div>
         </div>
         <div class="showcase-card sr d2" onclick="openLightbox(2)">
-          <img src="https://wattsan.com/wp-content/uploads/6090-PRO-6-e1757493445533.webp" alt="Wattsan 6090 PRO" loading="lazy">
+          <img src="https://wattsan.com/wp-content/uploads/6090-PRO-11.webp" alt="Wattsan 6090 PRO" loading="lazy">
           <div class="showcase-card-label"><span>Darba zona</span></div>
         </div>
         <div class="showcase-card sr" onclick="openLightbox(3)">
-          <img src="https://wattsan.com/wp-content/uploads/6090-PRO-47.webp" alt="Wattsan 6090 PRO" loading="lazy">
+          <img src="https://wattsan.com/wp-content/uploads/6090-PRO-6-e1757493445533.webp" alt="Wattsan 6090 PRO" loading="lazy">
           <div class="showcase-card-label"><span>Vadības panelis</span></div>
         </div>
         <div class="showcase-card sr" onclick="openLightbox(4)">
-          <img src="https://wattsan.com/wp-content/uploads/09-cnc-machines-products-gallery.webp" alt="Wattsan 6090 PRO" loading="lazy">
+          <img src="https://wattsan.com/wp-content/uploads/6090-PRO-47.webp" alt="Wattsan 6090 PRO" loading="lazy">
           <div class="showcase-card-label"><span>Ražošanas kvalitāte</span></div>
         </div>
         <div class="showcase-card sr" onclick="openLightbox(5)">
-          <img src="https://wattsan.com/wp-content/uploads/laser-co2-6090-pro-1-result.webp" alt="Wattsan 6090 PRO" loading="lazy">
+          <img src="https://wattsan.com/wp-content/uploads/09-cnc-machines-products-gallery.webp" alt="Wattsan 6090 PRO" loading="lazy">
           <div class="showcase-card-label"><span>Priekšskats</span></div>
         </div>
       </div>
@@ -377,7 +377,7 @@ footer{background:#1a1a1a;padding:40px var(--gutter) 20px}
 document.getElementById('yr').textContent=new Date().getFullYear();
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target)}})},{threshold:0.07});
 document.querySelectorAll('.sr').forEach(el=>obs.observe(el));
-const galleryImages=["https://wattsan.com/wp-content/uploads/6090-PRO-38.webp","https://wattsan.com/wp-content/uploads/6090-PRO-11.webp","https://wattsan.com/wp-content/uploads/6090-PRO-6-e1757493445533.webp","https://wattsan.com/wp-content/uploads/6090-PRO-47.webp","https://wattsan.com/wp-content/uploads/09-cnc-machines-products-gallery.webp","https://wattsan.com/wp-content/uploads/laser-co2-6090-pro-1-result.webp"];
+const galleryImages=["https://wattsan.com/wp-content/uploads/laser-co2-6090-pro-1-result.webp","https://wattsan.com/wp-content/uploads/6090-PRO-38.webp","https://wattsan.com/wp-content/uploads/6090-PRO-11.webp","https://wattsan.com/wp-content/uploads/6090-PRO-6-e1757493445533.webp","https://wattsan.com/wp-content/uploads/6090-PRO-47.webp","https://wattsan.com/wp-content/uploads/09-cnc-machines-products-gallery.webp"];
 let currentIdx=0;
 const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lightboxImg');
 function openLightbox(idx){currentIdx=idx;lbImg.src=galleryImages[idx];lb.classList.add('open');document.body.style.overflow='hidden'}
