@@ -49,6 +49,7 @@ ul { list-style: none; }
 }
 .nav-logo { display: flex; align-items: center; gap: 14px; }
 .nav-logo img { height: 22px; width: auto; }
+.nav-logo-bratus { height: 24px !important; width: auto; }
 .nav-logo-sep { width: 1px; height: 18px; background: var(--border2); }
 .nav-logo-lv {
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -528,6 +529,8 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
 <nav class="nav">
   <div class="nav-logo">
     <a href="/"><img src="https://wattsan.com/wp-content/uploads/wattsan_logo-1.svg" alt="Wattsan"></a>
+    <div class="nav-logo-sep"></div>
+    <a href="https://bratus.lv" target="_blank" title="Bratus.lv — Oficiālais pārstāvis"><img class="nav-logo-bratus" src="https://cdn.shopify.com/s/files/1/0720/6325/4803/files/Untitleddesign.png?v=1769505279" alt="Bratus.lv"></a>
     <div class="nav-logo-sep"></div>
     <div class="nav-logo-lv">Latvija <em>·</em> LV</div>
   </div>
@@ -1920,7 +1923,11 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <img src="https://wattsan.com/wp-content/uploads/wattsan_logo-1.svg" alt="Wattsan">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+        <img src="https://wattsan.com/wp-content/uploads/wattsan_logo-1.svg" alt="Wattsan" style="margin-bottom:0;">
+        <span style="color:rgba(255,255,255,0.15);font-size:0.7rem;">×</span>
+        <a href="https://bratus.lv" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0720/6325/4803/files/Untitleddesign.png?v=1769505279" alt="Bratus.lv" style="height:26px;filter:brightness(10);opacity:0.8;margin-bottom:0;"></a>
+      </div>
       <p>Wattsan — profesionālas CNC lāzera iekārtas ar 21 gadu pieredzi. Officiālais pārstāvis Latvijā: SIA Bratus.</p>
     </div>
     <div class="footer-col">
