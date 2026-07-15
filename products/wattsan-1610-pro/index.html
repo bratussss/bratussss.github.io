@@ -23,6 +23,23 @@ img{display:block}
 .nav-logo-sep{width:1px;height:18px;background:var(--border2)}
 .nav-logo-lv{font-family:'Plus Jakarta Sans',sans-serif;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink2);font-weight:400}
 .nav-logo-lv em{font-style:normal;color:var(--accent)}
+/* ── LANGUAGE SWITCHER ── */
+.lang-switch {
+  position: relative; display: inline-flex; align-items: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.68rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--ink2); font-weight: 500;
+  cursor: pointer; user-select: none;
+  padding: 6px 10px; border: 1px solid var(--border2);
+  transition: border-color 0.2s, color 0.2s;
+  gap: 6px; white-space: nowrap;
+}
+.lang-switch:hover { border-color: var(--ink); color: var(--ink); }
+.lang-switch.active-lang { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 600; pointer-events: none; }
+.lang-switch:not(.active-lang):hover { background: var(--bg2); }
+@media (max-width: 860px) {
+  .lang-switch { font-size: 0.62rem; padding: 5px 8px; }
+}
 .nav-links{display:flex;align-items:center;gap:28px}
 .nav-links a{font-size:0.73rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink2);transition:color 0.2s;font-weight:400}
 .nav-links a:hover,.nav-links a.active{color:var(--accent)}
@@ -212,7 +229,8 @@ footer{background:#1a1a1a;padding:40px var(--gutter) 20px}
   <div class="nav-logo">
     <a href="/"><img src="https://wattsan.com/wp-content/uploads/wattsan_logo-1.svg" alt="Wattsan"></a>
     <div class="nav-logo-sep"></div>
-    <div class="nav-logo-lv">Latvija <em>·</em> LV</div>
+    <a href="/products/wattsan-1610-pro/" class="lang-switch active-lang" aria-label="Latviešu valoda" title="Latviešu">LV</a>
+    <a href="/en/products/wattsan-1610-pro/" class="lang-switch" aria-label="English language" title="English">EN</a>
   </div>
   <div class="nav-links">
     <a href="/#iekārtas">Iekārtas</a>

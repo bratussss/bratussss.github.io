@@ -13,7 +13,24 @@
 .nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--gutter);background:rgba(255,255,255,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 .nav-logo{display:flex;align-items:center;gap:14px}.nav-logo img{height:22px;width:auto}.nav-logo-sep{width:1px;height:18px;background:var(--border2)}
 .nav-logo-lv{font-family:'Plus Jakarta Sans',sans-serif;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink2);font-weight:400}
-.nav-logo-lv em{font-style:normal;color:var(--accent)}.nav-links{display:flex;align-items:center;gap:28px}
+.nav-logo-lv em{font-style:normal;color:var(--accent)}
+/* ── LANGUAGE SWITCHER ── */
+.lang-switch {
+  position: relative; display: inline-flex; align-items: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.68rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--ink2); font-weight: 500;
+  cursor: pointer; user-select: none;
+  padding: 6px 10px; border: 1px solid var(--border2);
+  transition: border-color 0.2s, color 0.2s;
+  gap: 6px; white-space: nowrap;
+}
+.lang-switch:hover { border-color: var(--ink); color: var(--ink); }
+.lang-switch.active-lang { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 600; pointer-events: none; }
+.lang-switch:not(.active-lang):hover { background: var(--bg2); }
+@media (max-width: 860px) {
+  .lang-switch { font-size: 0.62rem; padding: 5px 8px; }
+}.nav-links{display:flex;align-items:center;gap:28px}
 .nav-links a{font-size:0.73rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink2);transition:color 0.2s;font-weight:400}
 .nav-links a:hover{color:var(--ink)}.nav-cta{display:flex;align-items:center;gap:10px}
 .btn-ghost{padding:8px 18px;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;border:1px solid var(--border2);color:var(--ink2);transition:all 0.2s;font-weight:400;white-space:nowrap}
@@ -123,7 +140,8 @@
 }
 </script>
 </head><body>
-<nav class="nav"><div class="nav-logo"><a href="/"><img src="https://wattsan.com/wp-content/uploads/wattsan_logo-1.svg" alt="Wattsan"></a><div class="nav-logo-sep"></div><div class="nav-logo-lv">Latvija <em>·</em> LV</div></div><div class="nav-links"><a href="/#iekārtas">Iekārtas</a><a href="/#rezerves-dalas">Rezerves daļas</a><a href="/#par-mums">Par mums</a><a href="/#kontakts">Kontakti</a><a href="https://bratus.lv" target="_blank">bratus.lv ↗</a></div><div class="nav-cta"><a href="https://bratus.lv" target="_blank" class="btn-ghost">Oficiālais pārstāvis ↗</a><a href="/#kontakts" class="btn-accent">Pieteikt</a></div></nav>
+<nav class="nav"><div class="nav-logo"><a href="/"><img src="https://wattsan.com/wp-content/uploads/wattsan_logo-1.svg" alt="Wattsan"></a><div class="nav-logo-sep"></div><a href="/products/chiller-cw-6200bn/" class="lang-switch active-lang" aria-label="Latviešu valoda" title="Latviešu">LV</a>
+    <a href="/en/products/chiller-cw-6200bn/" class="lang-switch" aria-label="English language" title="English">EN</a></div><div class="nav-links"><a href="/#iekārtas">Iekārtas</a><a href="/#rezerves-dalas">Rezerves daļas</a><a href="/#par-mums">Par mums</a><a href="/#kontakts">Kontakti</a><a href="https://bratus.lv" target="_blank">bratus.lv ↗</a></div><div class="nav-cta"><a href="https://bratus.lv" target="_blank" class="btn-ghost">Oficiālais pārstāvis ↗</a><a href="/#kontakts" class="btn-accent">Pieteikt</a></div></nav>
 <div class="nav-sub"><div class="nav-sub-inner"><span>TEYU Dzesētāji:</span><a href="../chiller-cwfl-3000hnp/">CWFL-3000HNP</a><a href="../chiller-cw-5200/">CW-5200</a><a href="../chiller-cw-6200bn/" class="active">CW-6200BN</a><a href="../chiller-cwfl-6000knp/">CWFL-6000KNP</a><a href="../chiller-cwfl-15000kn/">CWFL-15000KN</a><a href="../chiller-cwfl-20000kt/">CWFL-20000KT</a><a href="../chiller-cwfl-30000kt/">CWFL-30000KT</a></div></div>
 <div class="breadcrumb"><div class="breadcrumb-inner"><a href="../">Sākums</a><span style="color:var(--ink3)">/</span><a href="/#rezerves-dalas">Rezerves daļas</a><span style="color:var(--ink3)">/</span><span class="breadcrumb-current">CW-6200BN</span></div></div>
 <section class="product-hero"><div class="product-gallery sr"><img class="gallery-main" id="mainImg" src="https://img.yfisher.com/m6328/1750413181650-sgs-certified-chiller-cwfl-3000hnp-2/jpg100-t3-scale100.jpg" alt="CW-6200BN"><div class="gallery-thumbs"><img alt="TEYU Chiller Cw 6200Bn industriālais dzesētājs" class="gallery-thumb active" src="https://img.yfisher.com/m6328/1750413181650-sgs-certified-chiller-cwfl-3000hnp-2/jpg100-t3-scale100.jpg" onclick="document.getElementById('mainImg').src=this.src"></div></div><div class="product-info sr d1"><div class="product-badge"><span class="product-badge-dot"></span>UL, CE, REACH, RoHS</div><h1 class="product-title">CW-6200BN<br><strong>Industriālais Dzesētājs</strong><br><em>UL Sertificēts · 5030W</em></h1><p class="product-subtitle">UL-sertificēts industriālais dzesētājs ar 5030W dzesēšanas jaudu un ±0.5°C precizitāti. Piemērots CO2/CNC/YAG iekārtām. RS-485 komunikācija, ārējais filtrs.</p><div class="key-specs"><div class="key-spec"><div class="key-spec-l">Dzesēšanas jauda</div><div class="key-spec-v">5030 W (5.03 kW)</div></div><div class="key-spec"><div class="key-spec-l">Temp. precizitāte</div><div class="key-spec-v">±0.5℃</div></div><div class="key-spec"><div class="key-spec-l">Tvertnes tilpums</div><div class="key-spec-v">14 L</div></div><div class="key-spec"><div class="key-spec-l">Svars</div><div class="key-spec-v">82 kg</div></div></div><div class="product-cta"><a href="/#kontakts" class="btn-primary">Pieprasīt cenu <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a href="https://www.teyuchiller.com/chiller-cw-6200bn.html" target="_blank" class="btn-outline">TEYU Chiller ↗</a></div></div></section>
