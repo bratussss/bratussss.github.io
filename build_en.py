@@ -555,9 +555,23 @@ def restore_ids_and_hrefs(text):
         ('href="#spare-parts"', 'href="#rezerves-dalas"'),
         ('href="/#spare-parts"', 'href="/#rezerves-dalas"'),
         ('href="/en/#spare-parts"', 'href="/en/#rezerves-dalas"'),
+        ('href="#spare-dalas"', 'href="#rezerves-dalas"'),
+        ('href="/#spare-dalas"', 'href="/#rezerves-dalas"'),
+        ('href="/en/#spare-dalas"', 'href="/en/#rezerves-dalas"'),
+        ('id="spare-parts"', 'id="rezerves-dalas"'),
+        ('id="spare-dalas"', 'id="rezerves-dalas"'),
         ("initTabs('machines'", "initTabs('iekārtas'"),
         ("initTabs('spare-parts'", "initTabs('rezerves-dalas'"),
+        ("initTabs('spare-dalas'", "initTabs('rezerves-dalas'"),
         ('id="machines"', 'id="iekārtas"'),
+        # Fix diacritic-stripped IDs
+        ('id="iekartas"', 'id="iekārtas"'),
+        ('href="#iekartas"', 'href="#iekārtas"'),
+        ('href="/en/#iekartas"', 'href="/en/#iekārtas"'),
+        ("initTabs('iekartas'", "initTabs('iekārtas'"),
+        ('id="rezerves-dalas"', 'id="rezerves-dalas"'),  # preserve
+        ('href="#rezerves-dalas"', 'href="#rezerves-dalas"'),  # preserve
+        ('href="/en/#rezerves-dalas"', 'href="/en/#rezerves-dalas"'),  # preserve
     ]
     for old, new in replacements:
         text = text.replace(old, new)
@@ -598,8 +612,14 @@ def build_en_homepage():
         '<li><a href="/" style="color:var(--ink2);transition:color 0.2s;">',
         '<li><a href="/en/" style="color:var(--ink2);transition:color 0.2s;">'
     )
+    # ── PRESERVE ENGLISH: Redirect nav links to /en/ ──
+    c = c.replace('href="/#iekārtas"', 'href="/en/#iekārtas"')
+    c = c.replace('href="/#rezerves-dalas"', 'href="/en/#rezerves-dalas"')
+    c = c.replace('href="/#par-mums"', 'href="/en/#par-mums"')
+    c = c.replace('href="/#kontakts"', 'href="/en/#kontakts"')
 
     c = translate(c)
+    c = final_latvian_sweep(c)
     c = restore_ids_and_hrefs(c)
 
     with open(dst, 'w', encoding='utf-8') as f:
@@ -630,9 +650,22 @@ def build_en_products():
                     r'href="https://lazergriezeji.lv/en/products/\1/"',
                     c
                 )
+
+                # ── PRESERVE ENGLISH: Redirect all root-relative links to /en/ ──
+                # Nav links: /#iekārtas → /en/#iekārtas
+                c = c.replace('href="/#iekārtas"', 'href="/en/#iekārtas"')
+                c = c.replace('href="/#rezerves-dalas"', 'href="/en/#rezerves-dalas"')
+                c = c.replace('href="/#par-mums"', 'href="/en/#par-mums"')
+                c = c.replace('href="/#kontakts"', 'href="/en/#kontakts"')
+                # Logo link: href="/" → href="/en/"
+                c = c.replace('href="/">', 'href="/en/">')
                 # Breadcrumb home
                 c = c.replace('<li><a href="/" ', '<li><a href="/en/" ')
                 c = c.replace('<a href="../">', '<a href="/en/">')
+                # CTA buttons pointing to /#kontakts
+                c = c.replace('href="/#kontakts" class="btn-accent"', 'href="/en/#kontakts" class="btn-accent"')
+                c = c.replace('href="/#kontakts" class="btn-primary"', 'href="/en/#kontakts" class="btn-primary"')
+                c = c.replace('href="/#kontakts" class="btn-hero-primary"', 'href="/en/#kontakts" class="btn-hero-primary"')
 
                 # Lang switcher
                 c = c.replace(
@@ -645,12 +678,79 @@ def build_en_products():
                 )
 
                 c = translate(c)
+                c = final_latvian_sweep(c)
                 c = restore_ids_and_hrefs(c)
 
                 with open(dst, 'w', encoding='utf-8') as fh:
                     fh.write(c)
                 count += 1
     print(f"  ✓ {count} English product pages")
+
+
+def final_latvian_sweep(text):
+    """Remove ALL remaining Latvian words from text content."""
+    sweep = [
+        ('neesam', 'are not'), ('tālākpārdevējs', 'reseller'),
+        ('projektējam', 'design'), ('ražojam', 'manufacture'),
+        ('pārdodam', 'sell'), ('strādā', 'work'),
+        ('esam', 'have'), ('klientiem', 'customers'),
+        ('piedāvājam', 'offer'), ('izvēlēties', 'select'),
+        ('piemērotāko', 'most suitable'), ('vajadzībām', 'needs'),
+        ('aprēķinās', 'calculate'), ('izmaksas', 'costs'),
+        ('izvēles', 'selection'), ('līdz', 'to'),
+        ('servisam', 'service'), ('darbiniekus', 'staff'),
+        ('tehniķi', 'technicians'), ('uzstāda', 'install'),
+        ('apmāca', 'train'), ('visu', 'everything'),
+        ('apstiprinātā', 'confirmed'), ('pasūtīta', 'ordered'),
+        ('saņemat', 'receive'), ('detalizētu', 'detailed'),
+        ('konfigurāciju', 'configuration'), ('izvērtē', 'assess'),
+        ('vajadzības', 'needs'), ('Konsultācija', 'Consultation'),
+        ('Piedāvājums', 'Proposal'), ('Pasūtījums', 'Order'),
+        ('Piegāde', 'Delivery'), ('Uzstādīšana', 'Installation'),
+        ('apmācība', 'Training'), ('universālāki', 'more versatile'),
+        ('nemetāliskiem', 'non-metal'), ('materiāliem', 'materials'),
+        ('lielāku', 'higher'), ('apstrādē', 'processing'),
+        ('tēraudam', 'steel'), ('alumīnijam', 'aluminum'),
+        ('varšam', 'copper'), ('misiņam', 'brass'),
+        ('atšķirībā', 'unlike'), ('projektē', 'designs'),
+        ('ražo', 'manufactures'), ('pārdotas', 'sold'),
+        ('oficiālais', 'official'), ('pilnu', 'full'),
+        ('atbalstu', 'support'), ('atšķirība', 'difference'),
+        ('starp', 'between'), ('paredzēti', 'designed'),
+        ('ātrumu', 'speed'), ('notiek', 'works'),
+        ('iegādes', 'purchasing'), ('process', 'process'),
+        ('iespējas', 'options'), ('tiek', 'are'),
+        ('nodrošinātas', 'provided'), ('piegādātas', 'supplied'),
+        ('pēcgarantijas', 'post-warranty'), ('remonts', 'repair'),
+        ('daļu', 'part'), ('tehniskās', 'technical'),
+        ('konsultācijas', 'consultations'), ('valodā', 'language'),
+        ('apstrādā', 'processes'), ('efektīvi', 'efficiently'),
+        ('veic', 'performs'), ('negriež', 'does not cut'),
+        ('izmanto', 'uses'), ('komponentes', 'components'),
+        ('nozares', 'industry'), ('līderus', 'leaders'),
+        ('atbilstība', 'compliance'), ('drošības', 'safety'),
+        ('standartiem', 'standards'), ('komanda', 'team'),
+        ('nepārtrauktu', 'continuous'), ('produktu', 'product'),
+        ('uzlabošanu', 'improvement'), ('nozīmē', 'means'),
+        ('jāgaida', 'wait'), ('rezerves', 'spare'),
+        ('atbildes', 'answers'), ('biežākajiem', 'most common'),
+        ('jautājumiem', 'questions'), ('iegādi', 'purchasing'),
+        ('apkalpošanu', 'servicing'), ('izvēli', 'selection'),
+        ('kāds', 'what'), ('cik', 'how'),
+        ('ilgā', 'long'), ('kādi', 'which'),
+        ('kāpēc', 'why'), ('lētāku', 'cheaper'),
+        ('alternatīvu', 'alternative'),
+        # Single Latvian chars/words with diacritics
+        ('ā', 'a'), ('ē', 'e'), ('ī', 'i'), ('ū', 'u'),
+        ('š', 's'), ('ģ', 'g'), ('ķ', 'k'), ('ļ', 'l'),
+        ('ž', 'z'), ('č', 'c'), ('ņ', 'n'),
+        ('Ā', 'A'), ('Ē', 'E'), ('Ī', 'I'), ('Ū', 'U'),
+        ('Š', 'S'), ('Ģ', 'G'), ('Ķ', 'K'), ('Ļ', 'L'),
+        ('Ž', 'Z'), ('Č', 'C'), ('Ņ', 'N'),
+    ]
+    for lv, en in sweep:
+        text = text.replace(lv, en)
+    return text
 
 
 if __name__ == '__main__':
