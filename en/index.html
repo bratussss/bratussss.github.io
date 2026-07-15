@@ -84,7 +84,7 @@ ul { list-style: none; }
 }
 
 /* ── NAV ── */
-.not {
+.nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 300;
   height: 64px;
   display: flex; align-items: center; justify-content: space-between;
@@ -254,7 +254,7 @@ ul { list-style: none; }
   border-bottom: 1px solid var(--border);
 }
 .marquee-track {
-  display: flex; animation: marquee 32s linewith infinite; width: max-content;
+  display: flex; animation: marquee 32s linear infinite; width: max-content;
 }
 .marquee-item {
   display: flex; align-items: center; gap: 16px;
@@ -407,7 +407,7 @@ ul { list-style: none; }
     scrollbar-width: none;
     padding: 0 16px 0;
   }
-  .cats-inner::-webkit-scrollbwith { display: none; }
+  .cats-inner::-webkit-scrollbar { display: none; }
   .cat-tab {
     flex-direction: row;
     align-items: center;
@@ -554,11 +554,11 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
 .footer-col h5 { font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.22); margin-bottom: 14px; font-weight: 500; }
 .footer-col a, .footer-col p { display: block; font-size: 0.78rem; color: rgba(255,255,255,0.32); margin-bottom: 7px; transition: color 0.2s; font-weight: 300; }
 .footer-col a:hover { color: rgba(255,255,255,0.65); }
-.footer-bwith { max-width: var(--max); margin: 20px auto 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
-.footer-bwith p { font-size: 0.67rem; color: rgba(255,255,255,0.22); font-weight: 300; }
-.footer-bwith a { color: rgba(255,255,255,0.3); transition: color 0.2s; }
-.footer-bwith a:hover { color: rgba(255,255,255,0.55); }
-.footer-bwith .fa { color: rgba(230,60,50,0.55); }
+.footer-bar { max-width: var(--max); margin: 20px auto 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.footer-bar p { font-size: 0.67rem; color: rgba(255,255,255,0.22); font-weight: 300; }
+.footer-bar a { color: rgba(255,255,255,0.3); transition: color 0.2s; }
+.footer-bar a:hover { color: rgba(255,255,255,0.55); }
+.footer-bar .fa { color: rgba(230,60,50,0.55); }
 @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1/-1; } }
 
 /* ── SCROLL REVEAL ── */
@@ -566,7 +566,7 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
 .sr.in { opacity: 1; transform: translateY(0); }
 .d1 { transition-delay: 0.08s; } .d2 { transition-delay: 0.16s; } .d3 { transition-delay: 0.24s; }
 @media (prefers-reduced-motion: reduce) { .sr { opacity:1; transform:none; } }
-@media (min-width: 1400px) { .section-max, .footer-grid, .about-inner, .contact-inner, .cta-inner, .cats-inner, .footer-bwith { max-width: 1360px; } }
+@media (min-width: 1400px) { .section-max, .footer-grid, .about-inner, .contact-inner, .cta-inner, .cats-inner, .footer-bar { max-width: 1360px; } }
 </style>
 
 <link rel="canonical" href="https://lazergriezeji.lv/en/">
@@ -640,7 +640,7 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
       "name": "Kādas laser machines available in Latvia?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "in Latvia through the official dealer Bratus.lv available: CO2 Laser Machines wood, leather and acrylic (17 models), fiber laser metāla cutting machines (16 models), marking machines — Fiber, UV and CO2 (11 models), CNC Routers and lāzermetināšanas machines."
+        "text": "in Latvia caur the official dealer Bratus.lv available: CO2 Laser Machines wood, leather un acrylic (17 models), fiber laser metāla cutting machines (16 models), marking machines — Fiber, UV un CO2 (11 models), CNC Routers un lāzermetināšanas machines."
       }
     },
     {
@@ -672,7 +672,7 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
       "name": "What materials are suitable for CO2 laser cutting and engraving?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "CO2 lasers are suitable wood, plywood, MDF, leather, acrylic (plexiglass), rubber, textiles, paper, cardboard and stikla engravingi. Metal Cuttingi requires fiber laser."
+        "text": "CO2 lāzeri ir suitable wood, saplāksnim, MDF, leather, acrylic (plexiglass), gumijai, tekstilam, papīram, kartonam un stikla gravēšanai. Metal Cuttingi requires fiber laser."
       }
     },
     {
@@ -680,7 +680,7 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
       "name": "How long does delivery take in Latvia?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Standard delivery time is 2–6 weeks depending on the model and configuration. Populwith models are often available from stock in Latvia with delivery within 3–5 business days."
+        "text": "Standard delivery time is 2–6 weeks depending on the model and configuration. Popular models are often available from stock in Latvia with delivery within 3–5 business days."
       }
     }
   ]
@@ -691,7 +691,7 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
 
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<not class="nav" aria-label="Main navigation">
+<nav class="nav" aria-label="Main navigation">
   <div class="nav-logo">
     <a href="/"><img src="https://wattsan.com/wp-content/uploads/wattsan_logo-1.svg" alt="Wattsan"></a>
     <div class="nav-logo-sep"></div>
@@ -718,7 +718,7 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
   </div>
 </nav>
 
-<not class="breadcrumb" aria-label="You are here" style="position:fixed;top:64px;left:0;right:0;z-index:299;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 var(--gutter);">
+<nav class="breadcrumb" aria-label="You are here" style="position:fixed;top:64px;left:0;right:0;z-index:299;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 var(--gutter);">
   <ol style="display:flex;align-items:center;gap:8px;list-style:none;padding:8px 0;font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink3);max-width:var(--max);margin:0 auto;">
     <li><a href="/en/" style="color:var(--ink2);transition:color 0.2s;">Home</a></li>
     <li aria-hidden="true" style="color:var(--border2);">/</li>
@@ -1591,7 +1591,7 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
               <a href="/products/wattsan-fl-tt/" class="machine-item sr d2">
                 <div class="badge-new">New</div>
                 <div class="machine-left">
-                  <div class="machine-cat">Fiber marker · Desktop</div>
+                  <div class="machine-cat">Šķiedru marķētājs · Galda</div>
                   <div class="machine-name">Wattsan <span class="lbl">FL TT</span></div>
                   <div class="specs">
                     <div class="spec"><div class="spec-l">Power</div><div class="spec-v">20–100 W</div></div>
@@ -1668,7 +1668,7 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
         <div class="cat-tap-hint">Tap ↓</div>
         <div class="cat-tab-num">02</div>
         <div class="cat-tab-title">Peripheral Equipment</div>
-        <div class="cat-tab-desc">Industrial chillers, ais compressors, and exhaust systems for reliable operation.</div>
+        <div class="cat-tab-desc">Industrial chillers, air compressors, and exhaust systems for reliable operation.</div>
         <div class="cat-tab-footer">
           <div class="cat-tab-count"><div class="cat-count-dot"></div>7 models</div>
           <div class="cat-tab-cta">View All →</div>
@@ -1934,7 +1934,7 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
               <a href="https://bratus.lv/products/relejs" target="_blank" class="machine-item sr">
                 <div class="machine-left">
                   <div class="machine-cat">Electronics · Relay</div>
-                  <div class="machine-name">Relay <span class="lbl">for CO2 Laser</span></div>
+                  <div class="machine-name">Relejs <span class="lbl">CO2 Lāzeram</span></div>
                   <div class="specs">
                     <div class="spec"><div class="spec-l">Type</div><div class="spec-v">Electromagnetic</div></div>
                     <div class="spec"><div class="spec-l">Application</div><div class="spec-v">CO2 Laser Machines</div></div>
@@ -1942,14 +1942,14 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
                   </div>
                 </div>
                 <div class="machine-right">
-                  <img src="https://bratus.lv/cdn/shop/files/ALL06016.jpg?v=1774516267" alt="Relay" style="object-fit:contain">
+                  <img src="https://bratus.lv/cdn/shop/files/ALL06016.jpg?v=1774516267" alt="Relejs" style="object-fit:contain">
                   <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
                 </div>
               </a>
               <a href="https://bratus.lv/products/spogulis-zelta-komplekts-3-gab" target="_blank" class="machine-item sr d1">
                 <div class="machine-left">
                   <div class="machine-cat">Optics · Mirror</div>
-                  <div class="machine-name">Mirror Si <span class="lbl">Gold · 3 pcs.</span></div>
+                  <div class="machine-name">Spogulis Si <span class="lbl">Zelta · 3 pcs.</span></div>
                   <div class="specs">
                     <div class="spec"><div class="spec-l">Material</div><div class="spec-v">Silicon (Si) with gold coating</div></div>
                     <div class="spec"><div class="spec-l">Set</div><div class="spec-v">3 pcs.</div></div>
@@ -1957,14 +1957,14 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
                   </div>
                 </div>
                 <div class="machine-right">
-                  <img src="https://bratus.lv/cdn/shop/files/ALL06082.jpg?v=1774516338" alt="Mirror Si Gold" style="object-fit:contain">
+                  <img src="https://bratus.lv/cdn/shop/files/ALL06082.jpg?v=1774516338" alt="Spogulis Si Zelta" style="object-fit:contain">
                   <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
                 </div>
               </a>
               <a href="https://bratus.lv/products/spogulis-sudraba-komplekts-3-gab" target="_blank" class="machine-item sr d2">
                 <div class="machine-left">
                   <div class="machine-cat">Optics · Mirror</div>
-                  <div class="machine-name">Mirror Mo <span class="lbl">Silver · 3 pcs.</span></div>
+                  <div class="machine-name">Spogulis Mo <span class="lbl">Sudraba · 3 pcs.</span></div>
                   <div class="specs">
                     <div class="spec"><div class="spec-l">Material</div><div class="spec-v">Molybdenum (Mo) with silver coating</div></div>
                     <div class="spec"><div class="spec-l">Set</div><div class="spec-v">3 pcs.</div></div>
@@ -1972,14 +1972,14 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
                   </div>
                 </div>
                 <div class="machine-right">
-                  <img src="https://bratus.lv/cdn/shop/files/ALL06074.jpg?v=1774516318" alt="Mirror Mo Silver" style="object-fit:contain">
+                  <img src="https://bratus.lv/cdn/shop/files/ALL06074.jpg?v=1774516318" alt="Spogulis Mo Sudraba" style="object-fit:contain">
                   <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
                 </div>
               </a>
               <a href="https://bratus.lv/products/leca-63-5-mm" target="_blank" class="machine-item sr">
                 <div class="machine-left">
                   <div class="machine-cat">Optics · Lens</div>
-                  <div class="machine-name">Lens <span class="lbl">63.5 mm</span></div>
+                  <div class="machine-name">Lēca <span class="lbl">63.5 mm</span></div>
                   <div class="specs">
                     <div class="spec"><div class="spec-l">Diameter</div><div class="spec-v">18 mm</div></div>
                     <div class="spec"><div class="spec-l">Focal Length</div><div class="spec-v">63.5 mm</div></div>
@@ -1987,14 +1987,14 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
                   </div>
                 </div>
                 <div class="machine-right">
-                  <img src="https://bratus.lv/cdn/shop/files/ALL06037.jpg?v=1774516287" alt="Lens 63.5mm" style="object-fit:contain">
+                  <img src="https://bratus.lv/cdn/shop/files/ALL06037.jpg?v=1774516287" alt="Lēca 63.5mm" style="object-fit:contain">
                   <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
                 </div>
               </a>
               <a href="https://bratus.lv/products/leca-50-8-mm" target="_blank" class="machine-item sr d1">
                 <div class="machine-left">
                   <div class="machine-cat">Optics · Lens</div>
-                  <div class="machine-name">Lens <span class="lbl">50.8 mm</span></div>
+                  <div class="machine-name">Lēca <span class="lbl">50.8 mm</span></div>
                   <div class="specs">
                     <div class="spec"><div class="spec-l">Diameter</div><div class="spec-v">18 mm</div></div>
                     <div class="spec"><div class="spec-l">Focal Length</div><div class="spec-v">50.8 mm</div></div>
@@ -2002,7 +2002,7 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
                   </div>
                 </div>
                 <div class="machine-right">
-                  <img src="https://bratus.lv/cdn/shop/files/ALL06016.jpg?v=1774516267" alt="Lens 50.8mm" style="object-fit:contain">
+                  <img src="https://bratus.lv/cdn/shop/files/ALL06016.jpg?v=1774516267" alt="Lēca 50.8mm" style="object-fit:contain">
                   <div class="machine-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
                 </div>
               </a>
@@ -2070,7 +2070,7 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
     </div>
     <div class="form-box sr d2">
       <div class="form-title">Send Inquiry</div>
-      <form id="cf" toolname="contact-us" tooldescription="Fill out formu, lai receive consultation pwith laser machines">
+      <form id="cf" toolname="sazinies-ar-mums" tooldescription="Aizpildiet formu, lai saņemtu konsultāciju par lāzera iekārtām">
         <div class="f2">
           <div class="fg"><label class="form-lbl" for="cf-name">Full Name *</label><input class="finput" type="text" name="name" id="cf-name" placeholder="Jānis Bērziņš" required autocomplete="name"></div>
           <div class="fg"><label class="form-lbl" for="cf-email">Email *</label><input class="finput" type="email" name="email" id="cf-email" placeholder="janis@uznemums.lv" required autocomplete="email"></div>
@@ -2231,7 +2231,7 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
     </div>
     <div class="footer-col">
       <h5>Machines</h5>
-      <a href="https://wattsan.com/products/laser-machines/" target="_blank">CO2 Lasers</a>
+      <a href="https://wattsan.com/products/laser-machines/" target="_blank">CO2 Lāzeri</a>
       <a href="https://wattsan.com/products/fiber-metal-cutters/" target="_blank">Metal Cutting</a>
       <a href="https://wattsan.com/products/laser-markers/" target="_blank">Markers</a>
       <a href="https://wattsan.com/products/cnc-routers/" target="_blank">CNC Routers</a>
@@ -2275,7 +2275,7 @@ document.querySelectorAll('img:not([loading])').forEach(img => {
   img.loading = 'lazy';
   // Add decoding async for performance
   img.decoding = 'async';
-  // If from explicit width/height, set from natural dimensions when loaded
+  // If no explicit width/height, set from natural dimensions when loaded
   if (!img.hasAttribute('width') && !img.hasAttribute('height')) {
     img.onload = function() {
       if (this.naturalWidth) {
@@ -2315,7 +2315,7 @@ function initTabs(containerId, trackId) {
     tabs.forEach((t, i) => {
       t.classList.toggle('active', i === idx);
       const num = t.querySelector('.cat-tab-num');
-      if (num) num.textContent = i === idx ? numBase[i] + ' — Active' : numBase[i];
+      if (num) num.textContent = i === idx ? numBase[i] + ' — Aktīvs' : numBase[i];
     });
     
     if (fromTouch) {
@@ -2369,7 +2369,7 @@ function initTabs(containerId, trackId) {
   });
 }
 
-// Initialize both blocks
+// Initializējam abus blokus
 initTabs('machines', 'panelsTrack');
 initTabs('rezerves-dalas', 'partsTrack');
 
