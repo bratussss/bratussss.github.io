@@ -338,6 +338,37 @@ T = {
     'CWFL-3000HNP — TEYU industriālais dzesētājs. 3kW Fiber Lāzeram · SGS Sertificēts. Oficiālais pārstāvis Latvijā.': 'CWFL-3000HNP — TEYU industrial chiller. For 3kW fiber lasers · SGS Certified. Official dealer in Latvia.',
     'CWFL-6000KNP — TEYU industriālais dzesētājs. 6kW Fiber Lāzeram · SGS Sertificēts. Oficiālais pārstāvis Latvijā.': 'CWFL-6000KNP — TEYU industrial chiller. For 6kW fiber lasers · SGS Certified. Official dealer in Latvia.',
 
+    # ── JSON-LD product name patterns (critical - these use "  " double spaces) ──
+    'Industriālais Dzesētājs  ': 'Industrial Chiller  ',
+    'CO2 Lāzera Lampa  ': 'CO2 Laser Tube  ',
+    'Lāzera Iekārta  ': 'Laser Machine  ',
+    'Marķēšanas Iekārta  ': 'Marking Machine  ',
+    'Griešanas Iekārta  ': 'Cutting Machine  ',
+    'Konveijera / Audumam': 'Conveyor / Fabric',
+    'Ar kabīni': 'With Cabin',
+    'Lielformāta HP': 'Large Format HP',
+    'Lielformāta': 'Large Format',
+    'Rokas / Portatīvs': 'Handheld / Portable',
+    'Galda / Desktop': 'Desktop / Compact',
+    'Galda / Slēgts': 'Desktop / Enclosed',
+    'Galda / Kompakts': 'Desktop / Compact',
+    '3D Dinamiskais': '3D Dynamic',
+    'UV · Galda': 'UV · Desktop',
+    'CO2 · Galda': 'CO2 · Desktop',
+    'Statīvs': 'Floor Stand',
+
+    # ── PRODUCT PAGE: Section headings ──
+    'Kāpēc <strong>': 'Why <strong>',
+    'Kāpēc ': 'Why ',
+    'Nepieciešams <strong>': 'Need a <strong>',
+    '</strong>?<br><em>Pasūtiet tūlīt</em>': '</strong>?<br><em>Order Today</em>',
+
+    # ── PRODUCT PAGE: Common hero descriptions ──
+    'Reci W sērijas CO2 stikla lāzera caurule — 3.0 paaudzes tehnoloģija ar metāla-stikla saķepināšanu, >95% TEM00 staru kūļa kvalitāti un līdz pat 12 000 stundu kalpošanas laiku.': 'Reci W-series CO2 glass laser tube — 3rd generation technology with metal-glass frit sealing, >95% TEM00 beam quality, and up to 12,000 hours of service life.',
+    'Vispārdotākais TEYU industriālais dzesētājs — kompakts, portatīvs ar 1430W dzesēšanas jaudu un ±0.3℃ temperatūras precizitāti. Piemērots CO2 lāzera iekārtām līdz 150W.': 'TEYU\'s best-selling industrial chiller — compact and portable with 1430W cooling capacity and ±0.3℃ temperature accuracy. Suitable for CO2 laser machines up to 150W.',
+
+    # ── PRODUCT PAGE: Hero descriptions (pattern-based, model-specific) ──
+
     # ── PRODUCT PAGE: Common Hero & Feature Strings ──
     'Jaunais Modelis': 'New Model',
     'PRO Sērija': 'PRO Series',
@@ -701,7 +732,18 @@ def create_en_homepage():
     content = apply_all_translations(content)
     content = post_process_en(content)
 
-    # Fix any remaining Latvian fragments
+    # ── RESTORE HTML IDs AND HREF VALUES (must not be translated) ──
+    content = content.replace('href="#machines"', 'href="#iekārtas"')
+    content = content.replace('href="#spare-parts"', 'href="#rezerves-dalas"')
+    content = content.replace('href="#about-us"', 'href="#par-mums"')
+    content = content.replace('href="#contact"', 'href="#kontakts"')
+    content = content.replace('id="machines"', 'id="iekārtas"')
+    content = content.replace('id="spare-parts"', 'id="rezerves-dalas"')
+    # Fix JS initTabs calls
+    content = content.replace("initTabs('machines'", "initTabs('iekārtas'")
+    content = content.replace("initTabs('spare-parts'", "initTabs('rezerves-dalas'")
+
+    # Fix any remaining Latvian fragments in link text
     content = content.replace('>Sākums<', '>Home<')
     content = content.replace('>Iekārtas<', '>Machines<')
     content = content.replace('>Rezerves daļas<', '>Spare Parts<')
@@ -772,6 +814,16 @@ def create_en_product_pages():
                 # Apply all translations
                 content = apply_all_translations(content)
                 content = post_process_en(content)
+
+                # ── RESTORE HTML IDs AND HREF VALUES ──
+                content = content.replace('href="#machines"', 'href="#iekārtas"')
+                content = content.replace('href="/#machines"', 'href="/#iekārtas"')
+                content = content.replace('href="/en/#machines"', 'href="/en/#iekārtas"')
+                content = content.replace('href="#spare-parts"', 'href="#rezerves-dalas"')
+                content = content.replace('href="/#spare-parts"', 'href="/#rezerves-dalas"')
+                content = content.replace('href="/en/#spare-parts"', 'href="/en/#rezerves-dalas"')
+                content = content.replace("initTabs('machines'", "initTabs('iekārtas'")
+                content = content.replace("initTabs('spare-parts'", "initTabs('rezerves-dalas'")
 
                 # Fix nav link display text
                 content = content.replace('>Iekārtas<', '>Machines<')
