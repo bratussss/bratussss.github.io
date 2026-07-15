@@ -1,0 +1,45 @@
+# lazergriezeji.lv — LLM-friendly content index
+# Wattsan Latvija — Lāzera iekārtas | Oficiālais pārstāvis Bratus.lv
+
+## About
+Wattsan Latvija is the official Wattsan representative in Latvia, offering industrial CO2 laser machines, fiber metal cutters, laser markers, CNC routers, and laser welding equipment. Operated by SIA Bratus (bratus.lv) with 21+ years of industry experience.
+
+## Key pages
+- [Home](https://lazergriezeji.lv/): Main landing page with full product catalog, about section, and contact form.
+- [CO2 Laser Machines](https://lazergriezeji.lv/#iekārtas): 17 CO2 laser models for wood, leather, acrylic, rubber.
+- [Metal Cutting Machines](https://lazergriezeji.lv/#iekārtas): 16 fiber laser metal cutters up to 120 kW.
+- [Laser Markers](https://lazergriezeji.lv/#iekārtas): 11 marking machines — fiber, UV, CO2.
+- [Spare Parts](https://lazergriezeji.lv/#rezerves-dalas): CO2 lamps, chillers, optics, and official components.
+
+## Products
+- Wattsan 1820 Conveyor PRO — CO2 laser, 1800×2000 mm, 150-180W
+- Wattsan 6090 PRO — CO2 laser, 900×600 mm, 100-120W
+- Wattsan 1290 PRO — CO2 laser, 1200×900 mm, 100-120W
+- Wattsan 1610 PRO — CO2 laser, 1600×1000 mm, 100-120W
+- Wattsan 1630 Flat Bed PRO — CO2 laser, 1600×3000 mm, 360-700W
+- Wattsan 2030 Flat Bed PRO — CO2 laser, 3000×2000 mm, 360-700W
+- Wattsan 1313 A Cabin — Fiber metal cutter, 1300×1300 mm, up to 6 kW
+- Wattsan 3214 L — Large format fiber cutter, 14000×3200 mm, 1.5-12 kW
+- Wattsan 2060 Hard Ultra — Fiber cutter, 2000×6000 mm, 20-120 kW
+- Wattsan FM — Fiber marker, 5-100W, 200×200 mm
+- Wattsan FL GT — Large format fiber marker, 3-300W, 1000×1000 mm
+- Reci W1-W8 — CO2 laser tubes, 75-180W
+
+## Contact
+- Phone: +371 24 424 434
+- Email: sales@bratus.lv
+- Address: Dārznieku iela 42, Ķekava, Latvija
+- Website: https://bratus.lv
+- Registration: SIA Bratus, Reģ. nr. 40203628316
+
+## FAQ
+- Q: Kas ir Wattsan? A: Wattsan ir CNC lāzera iekārtu ražotājs no Ķīnas ar 21 gada pieredzi, kas projektē un ražo savas iekārtas.
+- Q: Kādas iekārtas piedāvā Wattsan Latvijā? A: CO2 lāzera iekārtas kokam/ādai/akrilam, šķiedru lāzera metāla griešanas iekārtas, marķēšanas iekārtas (Fiber, UV, CO2), CNC frēzes un lāzermetināšanas iekārtas.
+- Q: Kā sazināties ar Wattsan pārstāvi Latvijā? A: Zvaniet +371 24 424 434, rakstiet sales@bratus.lv, vai apmeklējiet bratus.lv.
+- Q: Vai tiek nodrošināta garantija un serviss? A: Jā, visas iekārtas tiek piegādātas ar ražotāja garantiju un vietējo servisa atbalstu Latvijā.
+- Q: Kāds ir CO2 lāzera iekārtu kalpošanas laiks? A: CO2 lampu kalpošanas laiks ir 3000-10000 stundas atkarībā no modeļa un ekspluatācijas apstākļiem.
+
+## Documentation
+- [Wattsan Official](https://wattsan.com/)
+- [Bratus.lv — Oficiālais pārstāvis](https://bratus.lv/)
+- [About Wattsan Company](https://wattsan.com/about-company-wattsan/)
