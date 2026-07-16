@@ -583,15 +583,7 @@ ul { list-style: none; }
 .form-status { font-size: 0.82rem; padding: 10px 14px; margin-bottom: 18px; display: none; }
 .form-status.ok { display: block; background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
 .form-status.err { display: block; background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
-.form-step-label { font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink3); margin-bottom: 8px; display: block; }
-.form-sep { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
-.pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
-.pill-row input[type="radio"] { display: none; }
-.pill-row label { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; background: #fff; border: 1px solid var(--border2); font-size: 0.78rem; font-weight: 400; color: var(--ink2); cursor: pointer; transition: all 0.2s; user-select: none; }
-.pill-row label:hover { border-color: var(--accent); color: var(--ink); }
-.pill-row input[type="radio"]:checked + label { background: var(--accent); color: #fff; border-color: var(--accent); }
-.color-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.12); flex-shrink: 0; }
-.pill-row input[type="radio"]:checked + label .color-dot { border-color: rgba(255,255,255,0.4); }
+.form-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.05rem; font-weight: 500; color: var(--ink); margin-bottom: 24px; }
 .fg { margin-bottom: 16px; }
 .f2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .form-label { display: block; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink3); margin-bottom: 7px; }
@@ -802,7 +794,7 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
     </h1>
     <p class="hero-sub">CO2 lāzeri, metāla griešanas iekārtas un marķētāji — Eiropas kvalitātes CNC aprīkojums ar piegādi un atbalstu Latvijā caur <strong style="color:rgba(255,255,255,0.75)">Bratus.lv</strong>.</p>
     <div class="hero-btns">
-      <a href="#kontakts" class="btn-hero-primary">
+      <a href="#pieteikums" class="btn-hero-primary">
         Pieteikt konsultāciju
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
@@ -2098,7 +2090,7 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
       <p>Mūsu speciālisti palīdzēs izvēlēties piemērotāko iekārtu jūsu ražošanas vajadzībām un aprēķinās izmaksas.</p>
     </div>
     <div class="cta-btns sr d1">
-      <a href="#kontakts" class="btn-hero-primary">
+      <a href="#pieteikums" class="btn-hero-primary">
         Pieteikt konsultāciju <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
       <a href="https://bratus.lv" target="_blank" class="btn-hero-ghost">bratus.lv ↗</a>
@@ -2107,133 +2099,53 @@ footer { background: #1a1a1a; padding: 48px var(--gutter) 24px; }
 </div>
 
 <!-- CONTACT SECTION -->
-<section class="section contact-section" id="pieteikums">
-  <div class="section-max">
-    <div class="contact-inner">
-      
-      <!-- Kreisā puse: info -->
-      <div class="contact-left">
-        <div class="eyebrow">Pieteikt projektu</div>
-        <h2>Sāciet savu<br><em>3D projektu</em><br>šodien</h2>
-        <p>Aizpildiet formu — mēs atsauksimies 24 stundu laikā.</p>
-        <div class="contact-meta">
-          <a href="tel:+37124424434" class="cmeta">
-            <div class="cmeta-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.19 12a2 2 0 0 1-.45-2.11L5 6.16a2 2 0 0 1 2-1.45h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L11 12.27a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 25 19.18z"/></svg></div>
-            <div>
-              <div class="cmeta-label">Telefons</div>
-              <div class="cmeta-val">+371 24 424 434</div>
-            </div>
-          </a>
-          <a href="mailto:sales@bratus.lv" class="cmeta">
-            <div class="cmeta-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            <div>
-              <div class="cmeta-label">E-pasts</div>
-              <div class="cmeta-val">sales@bratus.lv</div>
-            </div>
-          </a>
+<section class="contact-section section" id="pieteikums">
+  <div class="contact-inner">
+    <div class="contact-left sr">
+      <div class="eyebrow">Sazināties</div>
+      <h2>Pieteikt iekārtu<br>vai <em>konsultāciju</em></h2>
+      <p>Aizpildiet formu — mūsu speciālisti sazināsies ar jums 24 stundu laikā ar iekārtu rekomendācijām un cenu aprēķinu.</p>
+      <div class="contact-meta">
+        <a href="https://bratus.lv" target="_blank" class="cmeta">
+          <div class="cmeta-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div><div class="cmeta-label">Wattsan pārstāvis Latvijā</div><div class="cmeta-val">bratus.lv</div></div>
+        </a>
+        <a href="mailto:sales@bratus.lv" class="cmeta">
+          <div class="cmeta-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><div class="cmeta-label">E-pasts</div><div class="cmeta-val">sales@bratus.lv</div></div>
+        </a>
+        <a href="tel:+37124424434" class="cmeta">
+          <div class="cmeta-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.19 12a2 2 0 0 1-.45-2.11L5 6.16a2 2 0 0 1 2-1.45h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L11 12.27a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 25 19.18z"/></svg></div>
+          <div><div class="cmeta-label">Tālrunis</div><div class="cmeta-val">+371 24 424 434</div></div>
+        </a>
+      </div>
+    </div>
+    <div class="form-box sr d2">
+      <div class="form-status" id="fs"></div>
+      <div class="form-title">Nosūtīt pieprasījumu</div>
+      <form id="cf">
+        <div class="f2">
+          <div class="fg"><label class="form-label" for="cf-name">Vārds, uzvārds *</label><input class="finput" type="text" name="name" id="cf-name" placeholder="Jānis Bērziņš" required autocomplete="name"></div>
+          <div class="fg"><label class="form-label" for="cf-email">E-pasts *</label><input class="finput" type="email" name="email" id="cf-email" placeholder="janis@uznemums.lv" required autocomplete="email"></div>
         </div>
-      </div>
-
-      <!-- Labā puse: FORMA -->
-      <div class="form-box">
-        <div class="form-status" id="fs"></div>
-        <form id="cf">
-          <!-- Slēptie lauki — automātiski aizpildās no radio pogām -->
-          <input type="hidden" id="hfil" value="PLA">
-          <input type="hidden" id="hcol" value="Melna">
-
-          <!-- 01 — Filamenta tips -->
+        <div class="f2">
+          <div class="fg"><label class="form-label" for="cf-phone">Tālrunis</label><input class="finput" type="tel" name="phone" id="cf-phone" placeholder="+371 20 000 000" autocomplete="tel"></div>
           <div class="fg">
-            <span class="form-step-label">01 — Filamenta tips</span>
-            <div class="pill-row">
-              <input type="radio" name="fil" id="fpla" value="PLA" checked onchange="document.getElementById('hfil').value=this.value">
-              <label for="fpla">PLA</label>
-
-              <input type="radio" name="fil" id="fpetg" value="PETG" onchange="document.getElementById('hfil').value=this.value">
-              <label for="fpetg">PETG</label>
-
-              <input type="radio" name="fil" id="fabs" value="ABS" onchange="document.getElementById('hfil').value=this.value">
-              <label for="fabs">ABS</label>
-
-              <input type="radio" name="fil" id="fasa" value="ASA" onchange="document.getElementById('hfil').value=this.value">
-              <label for="fasa">ASA</label>
-
-              <input type="radio" name="fil" id="ftpu" value="TPU" onchange="document.getElementById('hfil').value=this.value">
-              <label for="ftpu">TPU</label>
-
-              <input type="radio" name="fil" id="fpc" value="PC" onchange="document.getElementById('hfil').value=this.value">
-              <label for="fpc">PC</label>
-
-              <input type="radio" name="fil" id="fpa" value="Nylon" onchange="document.getElementById('hfil').value=this.value">
-              <label for="fpa">Nylon</label>
-
-              <input type="radio" name="fil" id="fcf" value="CF/GF" onchange="document.getElementById('hfil').value=this.value">
-              <label for="fcf">CF/GF</label>
-
-              <input type="radio" name="fil" id="foth" value="Nezinu" onchange="document.getElementById('hfil').value=this.value">
-              <label for="foth">Nezinu</label>
-            </div>
+            <label class="form-label" for="cf-machine">Interesē iekārta</label>
+            <select class="fselect" name="machine" id="cf-machine">
+              <option value="">Izvēlieties tipu...</option>
+              <option>CO2 lāzera iekārta</option>
+              <option>Metāla griešanas iekārta</option>
+              <option>Marķēšanas iekārta (Fiber)</option>
+              <option>UV marķētājs</option>
+              <option>CNC frēze</option>
+              <option>Nav pārliecības — nepieciešama konsultācija</option>
+            </select>
           </div>
-
-          <!-- 02 — Krāsa -->
-          <div class="fg">
-            <span class="form-step-label">02 — Krāsa</span>
-            <div class="pill-row">
-              <input type="radio" name="col" id="cbk" value="Melna" checked onchange="document.getElementById('hcol').value=this.value">
-              <label for="cbk"><span class="color-dot" style="background:#1a1a1a"></span>Melna</label>
-
-              <input type="radio" name="col" id="cwh" value="Balta" onchange="document.getElementById('hcol').value=this.value">
-              <label for="cwh"><span class="color-dot" style="background:#ddd"></span>Balta</label>
-
-              <input type="radio" name="col" id="cgr" value="Pelēka" onchange="document.getElementById('hcol').value=this.value">
-              <label for="cgr"><span class="color-dot" style="background:#777"></span>Pelēka</label>
-
-              <input type="radio" name="col" id="crd" value="Sarkana" onchange="document.getElementById('hcol').value=this.value">
-              <label for="crd"><span class="color-dot" style="background:#d32f2f"></span>Sarkana</label>
-
-              <input type="radio" name="col" id="cbl" value="Zila" onchange="document.getElementById('hcol').value=this.value">
-              <label for="cbl"><span class="color-dot" style="background:#1976d2"></span>Zila</label>
-
-              <input type="radio" name="col" id="cgn" value="Zaļa" onchange="document.getElementById('hcol').value=this.value">
-              <label for="cgn"><span class="color-dot" style="background:#388e3c"></span>Zaļa</label>
-
-              <input type="radio" name="col" id="cor" value="Oranža" onchange="document.getElementById('hcol').value=this.value">
-              <label for="cor"><span class="color-dot" style="background:#f97316"></span>Oranža</label>
-
-              <input type="radio" name="col" id="cot" value="Cita" onchange="document.getElementById('hcol').value=this.value">
-              <label for="cot"><span class="color-dot" style="background:conic-gradient(#f00,#0f0,#00f,#f00)"></span>Cita</label>
-            </div>
-          </div>
-
-          <hr class="form-sep">
-
-          <!-- 03 — Kontakti -->
-          <span class="form-step-label" style="display:block;margin-bottom:16px">03 — Jūsu kontakti</span>
-          <div class="f2">
-            <div class="fg">
-              <label class="form-label" for="iname">Vārds, uzvārds *</label>
-              <input class="finput" type="text" id="iname" placeholder="Jānis Bērziņš" required>
-            </div>
-            <div class="fg">
-              <label class="form-label" for="iemail">E-pasts *</label>
-              <input class="finput" type="email" id="iemail" placeholder="janis@epasts.lv" required>
-            </div>
-          </div>
-          <div class="fg">
-            <label class="form-label" for="iphone">Tālrunis</label>
-            <input class="finput" type="tel" id="iphone" placeholder="+371 20 000 000">
-          </div>
-          <div class="fg">
-            <label class="form-label" for="imsg">Projekta apraksts + faila saite (ja ir) *</label>
-            <textarea class="ftextarea" id="imsg" placeholder="Aprakstiet projektu. Ja jums ir STL/STEP fails, pievienojiet saiti..." required></textarea>
-          </div>
-
-          <button type="submit" class="btn-submit" id="sbtn">
-            Nosūtīt pieprasījumu →
-          </button>
-        </form>
-      </div>
-
+        </div>
+        <div class="fg"><label class="form-label" for="cf-desc">Projekta apraksts *</label><textarea class="ftextarea" name="description" id="cf-desc" placeholder="Aprakstiet savu ražošanas vajadzību — materiāls, izmēri, apjoms..." required></textarea></div>
+        <button type="submit" class="btn-submit" id="sbtn">Nosūtīt pieprasījumu →</button>
+      </form>
     </div>
   </div>
 </section>
@@ -2521,25 +2433,22 @@ document.getElementById('cf').addEventListener('submit', async function(e) {
   const fs = document.getElementById('fs');
   const btn = document.getElementById('sbtn');
 
-  // ① Savāc vērtības no slēptajiem laukiem (tos automātiski atjauno radio pogas)
-  const fil = document.getElementById('hfil').value;
-  const col = document.getElementById('hcol').value;
+  // Savāc lietotāja ievadītos datus
+  const name = document.getElementById('cf-name').value;
+  const email = document.getElementById('cf-email').value;
+  const phone = document.getElementById('cf-phone').value;
+  const machine = document.getElementById('cf-machine').value;
+  const desc = document.getElementById('cf-desc').value;
 
-  // ② Savāc lietotāja ievadītos datus
-  const name = document.getElementById('iname').value;
-  const email = document.getElementById('iemail').value;
-  const phone = document.getElementById('iphone').value;
-  const msg = document.getElementById('imsg').value;
+  // Saliek visu vienā ziņojumā
+  const full = `Avots: lazergriezeji.lv\nIekārta: ${machine || 'nav norādīta'}\nTālrunis: ${phone || 'nav norādīts'}\n\nApraksts:\n${desc}`;
 
-  // ③ Saliek visu vienā ziņojumā
-  const full = `Avots: lazergriezeji.lv\nFilaments: ${fil}\nKrāsa: ${col}\nTālrunis: ${phone || 'nav norādīts'}\n\nProjekts:\n${msg}`;
-
-  // ④ Atspējo pogu, kamēr sūta
+  // Atspējo pogu, kamēr sūta
   btn.disabled = true;
   btn.textContent = 'Sūta...';
 
   try {
-    // ⑤ Sūta uz e-pasta servisu (ShopForms)
+    // Sūta uz e-pasta servisu (ShopForms)
     const r = await fetch('https://shopforms.vercel.app/api/send-email', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -2552,7 +2461,7 @@ document.getElementById('cf').addEventListener('submit', async function(e) {
     });
 
     if (r.ok) {
-      // ⑥ Veiksmīgi nosūtīts
+      // Veiksmīgi nosūtīts
       fs.className = 'form-status ok';
       fs.innerHTML = '✓ Paldies! Pieteikums nosūtīts. Atbildēsim 24h laikā.';
       this.reset();
@@ -2560,14 +2469,15 @@ document.getElementById('cf').addEventListener('submit', async function(e) {
       throw new Error();
     }
   } catch {
-    // ⑦ Kļūda
+    // Kļūda
     fs.className = 'form-status err';
     fs.innerHTML = '✗ Kļūda. Rakstiet tieši: sales@bratus.lv';
   }
 
-  // ⑧ Atjauno pogu
+  // Atjauno pogu
   btn.disabled = false;
   btn.innerHTML = 'Nosūtīt pieprasījumu →';
+});
 });
 </script>
 </body>
