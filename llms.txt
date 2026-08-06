@@ -1,4 +1,4 @@
-# lazergriezeji.lv — LLM-friendly content index
+﻿# lazergriezeji.lv — LLM-friendly content index
 # Wattsan Latvija — Lāzera iekārtas | Oficiālais pārstāvis Bratus.lv
 
 ## About
@@ -28,7 +28,7 @@ Wattsan Latvija is the official Wattsan representative in Latvia, offering indus
 ## Contact
 - Phone: +371 24 424 434
 - Email: sales@bratus.lv
-- Address: Dārznieku iela 42, Ķekava, Latvija
+- Address: Pliederu iela 22, Ķekava, Latvija
 - Website: https://bratus.lv
 - Registration: SIA Bratus, Reģ. nr. 40203628316
 

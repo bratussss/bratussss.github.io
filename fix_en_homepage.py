@@ -1,4 +1,4 @@
-"""Fix the broken English homepage - replace ALL pseudo-translated text with proper English."""
+﻿"""Fix the broken English homepage - replace ALL pseudo-translated text with proper English."""
 import re
 
 with open(r"d:\VS KODI\ROzo github\en\index.html", "r", encoding="utf-8") as f:
@@ -41,7 +41,7 @@ c = c.replace(
 )
 c = c.replace(
     '"streetAddress": "Darznieku iela 42"',
-    '"streetAddress": "Dārznieku iela 42"'
+    '"streetAddress": "Pliederu iela 22"'
 )
 c = c.replace(
     '"addressLocality": "Kekava"',

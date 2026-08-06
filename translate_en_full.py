@@ -1,4 +1,4 @@
-"""
+﻿"""
 Comprehensive AI-quality English translation for the ENTIRE website.
 Translates EVERY text element: UI, product specs, FAQ, about, CTAs, etc.
 """
@@ -550,8 +550,8 @@ def post_process_en(text):
         '"text": "Available in Latvia through the official dealer Bratus.lv: CO2 Laser Machines for wood, leather and acrylic (17 models), fiber laser metal cutting machines (16 models), marking machines — Fiber, UV and CO2 (11 models), CNC Routers and laser welding machines."'
     )
     text = text.replace(
-        '"text": "Zvaniet pa tālruni +371 24 424 434, rakstiet uz e-pastu sales@bratus.lv, apmeklējiet vietni bratus.lv vai aizpildiet kontaktformu mūsu lapā. Adrese: Dārznieku iela 42, Ķekava, Latvija."',
-        '"text": "Call +371 24 424 434, email sales@bratus.lv, visit bratus.lv or fill out our contact form. Address: Dārznieku iela 42, Ķekava, Latvia."'
+        '"text": "Zvaniet pa tālruni +371 24 424 434, rakstiet uz e-pastu sales@bratus.lv, apmeklējiet vietni bratus.lv vai aizpildiet kontaktformu mūsu lapā. Adrese: Pliederu iela 22, Ķekava, Latvija."',
+        '"text": "Call +371 24 424 434, email sales@bratus.lv, visit bratus.lv or fill out our contact form. Address: Pliederu iela 22, Ķekava, Latvia."'
     )
     text = text.replace(
         '"text": "Jā, visas Wattsan iekārtas tiek piegādātas ar ražotāja garantiju un pilnu vietējo servisa atbalstu Latvijā — ieskaitot uzstādīšanu, apmācību un garantijas apkalpošanu caur SIA Bratus."',
